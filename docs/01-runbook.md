@@ -26,21 +26,23 @@ Build in this order. Each step names the Plutio area you'll work in and the doc/
 ## Phase 4 — Client-facing content
 
 10. **Build intake & feedback Forms** — see `docs/06-forms.md`.
-11. **Build Proposal templates** — see `docs/07-proposals-and-contracts.md` and `templates/proposals/`.
-12. **Build Contract templates** — same doc, content in `templates/contracts/`.
-13. **Set up Invoices & Subscriptions** — see `docs/08-invoices-and-payments.md` and `templates/invoices/`.
+11. **Build Scheduler booking pages** — see `docs/13-scheduling-and-messaging.md`: Discovery Call, Kickoff Call, Review/Feedback Call, and (Podcast clients) Recording Session.
+12. **Build Proposal templates** — see `docs/07-proposals-and-contracts.md` and `templates/proposals/`.
+13. **Build Contract templates** — same doc, content in `templates/contracts/`.
+14. **Set up Invoices & Subscriptions** — see `docs/08-invoices-and-payments.md` and `templates/invoices/`.
 
 ## Phase 5 — Automation
 
-14. **Build Automations** — see `docs/09-workflows-automations.md`. Recreate each trigger → action rule under Plutio's Automations builder.
-15. **Load Email templates** — `templates/emails/`, referenced by the automations above.
+15. **Build Automations** — see `docs/09-workflows-automations.md`. Recreate each trigger → action rule under Plutio's Automations builder.
+16. **Load Email templates** — `templates/emails/`, referenced by the automations above.
 
 ## Phase 6 — Client Portal
 
-16. **Configure the Client Portal** — see `docs/10-client-portal.md`: file organization and a client-facing Wiki for FAQs.
-17. **Confirm client portal access & progress tracking** — see `docs/12-client-logins-and-progress-tracking.md`. Read this before your first real client — Plutio's access model (secure link, no password) is different from a traditional login and is worth understanding up front.
+17. **Configure the Client Portal** — see `docs/10-client-portal.md`: file organization and a client-facing Wiki for FAQs.
+18. **Confirm client portal access & progress tracking** — see `docs/12-client-logins-and-progress-tracking.md`. Read this before your first real client — Plutio's access model (secure link, no password) is different from a traditional login and is worth understanding up front.
+19. **Set your messaging notification preferences** — see `docs/13-scheduling-and-messaging.md`.
 
 ## Phase 7 — Go live
 
-18. **Dry run** — create a test Contact → test Sales Pipeline card → move it through every stage → confirm a Project auto-creates on Won → confirm each Automation fires, including Milestone progress → open the client portal link as if you were the client and confirm it shows only that project, the live progress bar, and the flagged client-visible tasks → then delete/void the test records.
-19. **Go live** — point your real intake channel (website embed, ad landing page, etc.) at the Plutio form from step 10.
+20. **Dry run** — create a test Contact → test Sales Pipeline card → move it through every stage → confirm a Project auto-creates on Won → confirm each Automation fires, including Milestone progress → open the client portal link as if you were the client and confirm it shows only that project, the live progress bar, the message thread, the booking link, and the flagged client-visible tasks → then delete/void the test records.
+21. **Go live** — point your real intake channel (website embed, ad landing page, etc.) at the Plutio form from step 10.

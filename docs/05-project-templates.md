@@ -34,7 +34,7 @@ Used by **Commercial**, **Brand Story**, and **Conference** — build this once,
 - [ ] Internal kickoff: assign Producer/PM, Editor, Videographer(s)/Photographer(s)
 - [ ] Confirm Creative Brief received (link to Sales Pipeline card)
 - [ ] Confirm deposit invoice paid
-- [ ] Schedule kickoff call with client
+- [ ] Kickoff call booked (client self-serves via the Kickoff Call Scheduler link, docs/13)
 - [ ] Add key dates to shared calendar (shoot date, review date, delivery date)
 
 ### Milestone 2 — Pre-Production

@@ -31,7 +31,7 @@ A small studio/team: a producer/project manager, one or more editors, one or mor
 ## Folder structure
 
 ```
-docs/       Reference docs for each part of the setup (pipeline, fields, forms, automations, roles...)
+docs/       Reference docs for each part of the setup (pipeline, fields, forms, scheduling, automations, roles...)
 templates/  Copy-paste-ready content for Proposals, Contracts, Invoices, and Emails
 imports/    CSV templates for bulk-importing Contacts and Companies, plus the master custom-fields list
 ```

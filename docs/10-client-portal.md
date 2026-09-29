@@ -11,6 +11,8 @@ Every client gets a private, branded page (your logo, colors, and domain if whit
 - File access
 - A payment button for any outstanding invoice
 - The ability to upload files back to you (these land in the same shared project folder you see internally)
+- A message thread to talk directly with your team (docs/13)
+- A "Book a Time" link so they can self-serve a call without messaging you to ask for one (docs/13)
 
 ## File organization
 
