@@ -1,0 +1,24 @@
+Object,Field Name,Field Type,Options,Required
+Contact,Preferred Contact Method,Dropdown,"Email, Phone, Text",No
+Contact,Social Media Handle(s),Text,,No
+Contact,Role/Title at Company,Text,,No
+Company,Industry,Dropdown,"Corporate, Nonprofit, E-commerce/Retail, Hospitality, Real Estate, Healthcare, Education, Personal/Individual, Music/Entertainment, Other",No
+Company,Website,URL,,No
+Company,Brand Guidelines Link,URL,,No
+Deal,Project Type,Dropdown,"Commercial/Brand, Corporate/Training, Event Coverage, Wedding, Music Video, Documentary, Social Content Retainer, Other",Yes
+Deal,Estimated Budget / Package Tier,Dropdown,"Basic, Standard, Premium, Custom",Yes
+Deal,Target Shoot Date(s),Date,,No
+Deal,Lead Source,Dropdown,"Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other",No
+Deal,Lost Reason,Dropdown,"Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit","Only when Stage = Lost"
+Project,Project Type,Dropdown,"Commercial/Brand, Corporate/Training, Event Coverage, Wedding, Music Video, Documentary, Social Content Retainer, Other",Yes
+Project,Shoot Date(s),Date,,Yes
+Project,Shoot Location(s),Text,,No
+Project,Number of Shoot Days,Number,,No
+Project,Crew Assigned,Text/Multi-select,,No
+Project,Equipment Needed,Long Text,,No
+Project,Deliverable Specs,Long Text,,Yes
+Project,Number of Revisions Included,Number,,Yes
+Project,Usage Rights / License Terms,Dropdown,"Social Only, Social + Paid Ads, Broadcast, Unlimited/Buyout, Personal Use Only",Yes
+Project,Music Licensing,Text/URL,,No
+Project,Raw Footage Storage Link,URL,,No
+Project,Final Delivery Link,URL,,No
