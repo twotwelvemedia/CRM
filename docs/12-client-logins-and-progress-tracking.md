@@ -1,80 +1,38 @@
-# Client Logins & Progress Tracking
+# Client Portal Access & Progress Tracking
 
-## How client logins work in SuiteDash
+## How clients actually get in — no traditional login
 
-- Every Contact can be granted **Portal Access** — this is what gives them a login. Turn it on under Contacts → [select Contact] → Portal Access → Invite to Portal. SuiteDash sends its own invite email with a link to set a password; this is separate from the custom Welcome email in `templates/emails/welcome-email.md`, which is a friendly follow-up, not the credential itself.
-- **Scope**: a client only ever sees their own Company's/Contact's Projects, Files, Invoices, and Messages — never other clients' data.
-- **Multiple stakeholders per client**: if a Company has more than one person who needs access (e.g. a marketing director plus a finance contact), invite each person individually rather than sharing one login, and use Portal Roles (below) to control what each sees.
+This is the biggest mechanical difference from the original SuiteDash version of this package: **Plutio clients don't create an account or set a password.** Each client gets a private, unique portal link by email, tied to their Contact record and their Project(s). They click it, and their branded portal opens — nothing to install, nothing to remember. This is arguably better for your "mobile app friendly" requirement: there's no signup friction on a phone, no forgotten-password support requests, just a link that opens straight into a mobile-optimized page.
 
-## Portal Roles
+If you ever need stricter security for a specific client (common for law-adjacent or highly sensitive work — not typical for video production), Plutio supports an optional password-protected portal mode. Default to the link-based model for every project type in this package unless a client specifically requires otherwise.
 
-Create at least two under Settings → Client Portal Roles:
+## Scope of what a client sees
 
-| Role | Sees |
-|---|---|
-| Primary Contact | Projects, Files, Invoices, Messages (full visibility) |
-| Stakeholder (view-only) | Projects and Files only — no Invoices |
+A client only ever sees their own Project(s), files, invoices, and Milestone progress — never other clients' data. If a Company has more than one stakeholder who needs visibility (e.g. a marketing director plus a finance contact), add each person as their own Contact and share the project with both — each gets their own portal link.
 
-Assign the role when you send the portal invite.
+## How progress tracking actually works
 
-## Where "grant portal access" fits in the workflow
+Plutio's client portal shows a **live, real-time progress bar** driven by Milestones (docs/05) — this is a native feature, not something built manually out of checklists:
 
-This isn't automatic — treat it as an explicit step:
+- Each of the 7 phases in the Base Template (Commercial, Brand Story, Conference) is built as its own **Milestone**, each with a deadline.
+- As tasks under a Milestone are completed, Plutio's progress calculation updates automatically.
+- Mark the Milestone **reached** once its tasks are done — Automation #9 (docs/09) can do this for you automatically when every task under it is complete.
+- The client's portal shows exactly which Milestone is current, without any of your internal task-level detail — unless a specific task is flagged **Client-Visible** (docs/05 flags which ones: review link sent, sign-off received, files delivered).
 
-- `docs/05-project-templates.md` Phase 1 (Onboarding & Kickoff) now includes: **"Confirm client has portal login access (invite sent + accepted)."**
-- Check whether your SuiteDash plan can fire the portal invite automatically as a Workflow action (Settings → Workflows → Actions list). If it can, add it to Workflow #1. If not, it's a 10-second manual click each time a deal closes — don't skip it, since it's the entire point of this setup.
-
-## How clients actually track progress
-
-SuiteDash gives you two mechanisms. Use both, at different levels of detail — don't just hand clients your internal task list.
-
-### 1. Milestones — the client's main progress view
-
-For **Commercial, Brand Story, and Conference** projects, Milestones are the high-level, client-facing progress bar. Build **one Milestone per phase**, matching the Base Template in `docs/05-project-templates.md`:
-
-1. Onboarding & Kickoff
-2. Pre-Production
-3. Production
-4. Post-Production
-5. Client Review & Revisions
-6. Final Delivery
-7. Wrap-up / Complete
-
-As the project moves through each phase, mark the matching Milestone complete. The client's portal dashboard then shows a clean progress bar ("Post-Production — in progress") with none of your internal task-level clutter.
-
-**Podcast is different**: since a Podcast Project is one ongoing show rather than a single arc, don't use the 7-phase bar. Instead, add a rolling milestone per episode (e.g. "Episode 12 — Recorded," "Episode 12 — Published") so the client's portal always reflects the current episode's status. See the Podcast section of `docs/05-project-templates.md`.
-
-### 2. Client-visible tasks — for the few things they need to act on
-
-For the handful of tasks where the client genuinely needs to see or act on something (not just watch progress), toggle that specific task to **Visible to Client** instead of exposing your whole checklist. `docs/05-project-templates.md` flags these inline in the Base Template — mainly:
-
-- "Review link sent" (Phase 5)
-- "Client sign-off received" (Phase 5)
-- "Final files delivered" (Phase 6)
-
-Leave everything else — equipment checks, internal QC, crew scheduling, post-mortems — as Team Only. Clients don't need your internal punch list; it just makes their portal confusing.
-
-## Keeping Milestones in sync (Workflow #9)
-
-Added to `docs/09-workflows-automations.md`:
-
-| # | Trigger | Action | Notes |
-|---|---|---|---|
-| 9 | All tasks in a phase's task list are marked complete | Mark the matching Milestone complete | Keeps the client's progress bar accurate without a PM updating two places |
-
-If your plan doesn't support triggering off "all tasks in a list complete," make "mark [Phase] milestone complete" the literal last checklist item in each phase instead, so updating the client view is part of finishing the phase, not a separate step someone forgets.
+**Podcast is structured differently**: instead of one set of 7 Milestones for the whole engagement, each **episode is its own Milestone** (e.g. "Episode 12"), created fresh every cycle. The client's portal then always reflects the status of the current episode(s) rather than a single progress bar for an ongoing show that never "finishes." See the Podcast section of `docs/05-project-templates.md`.
 
 ## What the client actually experiences
 
-1. Gets an invite email → sets a password → logs into your branded portal (`portal.yourstudio.com` once white-labeling is set up, per `docs/10-client-portal.md`).
-2. Lands on their Dashboard → sees their Project(s) listed.
-3. Opens a Project → sees the Milestone progress bar, plus any tasks flagged Visible to Client (e.g. "Review your rough cut").
-4. Can view/download Files, view and pay Invoices, and message you — all from the same login.
+1. Gets an email with their portal link when their card is won (Automation #1, docs/09) — no signup step.
+2. Opens the link on their phone or desktop → lands on their branded portal.
+3. Sees their Project's live Milestone progress bar (e.g. "Post-Production — in progress").
+4. Sees any tasks flagged Client-Visible (e.g. "Review your rough cut").
+5. Can view/download files, upload files back, view and pay invoices, and message you — all from the same link, every time.
 
 ## Setup checklist
 
-- [ ] Client Portal Roles created (Primary Contact, Stakeholder)
-- [ ] Milestones added to every Project Template (7 per project, matching phases)
+- [ ] White-labeling configured (docs/01, Phase 0) so the portal carries your branding, not Plutio's
+- [ ] Milestones built into every Project Template, matching the phases in docs/05
 - [ ] Client-visible tasks flagged in each Project Template
-- [ ] Portal-invite step present in Phase 1 of every Project Template
-- [ ] Test: create a dummy Contact, invite to portal, confirm they see only their own project, the milestone bar, and the flagged client-visible tasks — nothing else
+- [ ] Automation #9 built (auto-mark Milestones reached) so progress stays accurate without manual updates
+- [ ] Test: create a dummy Contact and Project, open the portal link yourself, confirm it shows only that project, the live Milestone bar, and the flagged client-visible tasks — nothing else

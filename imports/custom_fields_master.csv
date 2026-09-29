@@ -5,12 +5,12 @@ Contact,Role/Title at Company,Text,,No
 Company,Industry,Dropdown,"Corporate, Nonprofit, E-commerce/Retail, Hospitality, Real Estate, Healthcare, Education, Personal/Individual, Music/Entertainment, Other",No
 Company,Website,URL,,No
 Company,Brand Guidelines Link,URL,,No
-Deal,Project Type,Dropdown,"Commercial, Brand Story, Conference, Podcast",Yes
-Deal,Deliverable Medium,Dropdown,"Video Only, Photo Only, Video + Photo",Yes
-Deal,Estimated Budget / Package Tier,Dropdown,"Basic, Standard, Premium, Custom",Yes
-Deal,Target Shoot Date(s),Date,,No
-Deal,Lead Source,Dropdown,"Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other",No
-Deal,Lost Reason,Dropdown,"Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit","Only when Stage = Lost"
+Pipeline Card,Project Type,Dropdown,"Commercial, Brand Story, Conference, Podcast",Yes
+Pipeline Card,Deliverable Medium,Dropdown,"Video Only, Photo Only, Video + Photo",Yes
+Pipeline Card,Estimated Budget / Package Tier,Dropdown,"Basic, Standard, Premium, Custom",Yes
+Pipeline Card,Target Shoot Date(s),Date,,No
+Pipeline Card,Lead Source,Dropdown,"Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other",No
+Pipeline Card,Lost Reason,Dropdown,"Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit","Only when Stage = Lost"
 Project,Project Type,Dropdown,"Commercial, Brand Story, Conference, Podcast",Yes
 Project,Deliverable Medium,Dropdown,"Video Only, Photo Only, Video + Photo",Yes
 Project,Shoot Date(s),Date,,Yes

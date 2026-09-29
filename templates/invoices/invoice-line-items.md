@@ -1,6 +1,6 @@
 # Invoice Line Items
 
-Create each of these as a saved Invoice Item/Product in SuiteDash (Settings → Invoicing → Items) so you're never retyping them.
+Create each of these as a saved Invoice Item in Plutio (Financials → Items) so you're never retyping them.
 
 ## 1. Deposit Invoice — 50%
 

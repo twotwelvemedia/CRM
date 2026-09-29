@@ -1,10 +1,16 @@
-# CRM Pipeline (Deals)
+# Sales Pipeline (Task Board)
 
-Sales and production are two different systems in this setup: **Deals** track a lead through to a signed contract; **Projects** (docs/05) track the actual production work after a deal is won. Don't try to run production work through the Deal pipeline.
+Plutio doesn't have a dedicated "Deals" object — the sales pipeline is built using a **Task Board** in Kanban view, with each card representing one prospective deal. This is a standard, fully-supported Plutio pattern (their own help docs cover it: "Using task boards as sales pipelines").
 
-## Pipeline: "Video Production Sales"
+Keep this board separate from production work — sales and production are two different systems. A card here becomes a Project (docs/05) once it's won; don't run production work through this board.
 
-| # | Stage | Meaning | Exit criteria |
+## Build: "Video Production Sales" Task Board
+
+1. Create a new Task Board named **Video Production Sales**.
+2. Switch it to Kanban view.
+3. Create one column per stage:
+
+| # | Stage (column) | Meaning | Exit criteria |
 |---|-------|---------|----------------|
 | 1 | New Lead | Inbound inquiry, not yet contacted | First response sent within 1 business day |
 | 2 | Discovery Call Scheduled | Call booked | Call takes place |
@@ -12,12 +18,31 @@ Sales and production are two different systems in this setup: **Deals** track a 
 | 4 | Proposal Sent | Proposal delivered | Client responds |
 | 5 | Negotiation | Revising scope/price | Terms agreed |
 | 6 | Contract Sent | Contract out for e-signature | Signed |
-| 7 | Won — Contract Signed | Deposit invoice sent | Deposit paid → auto-creates Project (see docs/09, Workflow #1) |
-| 8 | Lost | Did not close | Lost Reason tag applied (below) |
+| 7 | Won — Contract Signed | Deposit invoice sent | Deposit paid → auto-creates Project (docs/09, Automation #1) |
+| 8 | Lost | Did not close | Lost Reason field set (below) |
 
-Build stages 1–7 as your live pipeline columns. Keep **Lost** as a terminal stage rather than deleting lost deals — they're your remarketing list (see Workflow #7, docs/09).
+Keep **Lost** as a terminal column rather than deleting cards — they're your remarketing list (Automation #7, docs/09).
 
-## Lost Reasons (apply as a tag when marking a deal Lost)
+## Card conventions
+
+- **Card title**: Client/Company name + short project descriptor (e.g. "Acme Corp — Brand Story")
+- **Card description**: notes, next steps, context on the opportunity
+- **Assignee**: whoever owns the deal (Sales/Account Manager)
+
+## Card-level custom fields
+
+Add these to the Task Board under Settings → Custom Fields (scope: this board) so every card carries them — full spec in `docs/03-custom-fields.md`:
+
+- Project Type
+- Deliverable Medium
+- Estimated Budget / Package Tier
+- Target Shoot Date(s)
+- Lead Source
+- Lost Reason
+
+Fill these in before moving a card past Stage 3.
+
+## Lost Reasons (set the Lost Reason field when a card is marked Lost)
 
 - Budget Mismatch
 - Chose Competitor
@@ -25,14 +50,7 @@ Build stages 1–7 as your live pipeline columns. Keep **Lost** as a terminal st
 - Went Silent (no response after 3 follow-ups)
 - Scope Not a Fit
 
-## Deal-level fields to fill in before moving a deal past Stage 3
-
-- Project Type (custom field, docs/03)
-- Estimated Budget / Package Tier (custom field, docs/03)
-- Target Shoot Date(s) (custom field, docs/03)
-- Expected Close Date (built-in Deal field)
-
 ## Notes
 
-- Podcast clients are ongoing/recurring by nature — still run the initial sale through this pipeline once. Episode billing and renewals are handled inside the Podcast Project itself (docs/05, docs/08), not as repeat deals.
-- Consider a second, lightweight "Referral / Past Client" pipeline later once volume justifies it — not needed at launch.
+- Podcast clients are ongoing/recurring by nature — still run the initial sale through this board once. Episode billing and renewals are handled inside the Podcast Project itself (docs/05, docs/08), not as repeat cards.
+- Plutio doesn't support bulk CSV import for Task Board cards the way it does for Contacts/Companies — add your existing in-flight deals to this board by hand (docs/01, Phase 2).

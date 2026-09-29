@@ -1,4 +1,4 @@
-**Trigger:** Workflow #6 — 3 days after final delivery
+**Trigger:** Automation #6 — 3 days after final delivery
 
 **Subject:** Loved working on [Project Name] — mind sharing a quick word?
 

@@ -1,4 +1,4 @@
-**Trigger:** Workflow #4 — Invoice overdue (Day 0 and Day 7 variants; Day 14 adds late fee language)
+**Trigger:** Automation #4 — Invoice overdue (Day 0 and Day 7 variants; Day 14 adds late fee language)
 
 **Subject (Day 0):** Reminder: Invoice for [Project Name] is due today
 

@@ -1,8 +1,12 @@
 # Custom Fields
 
-Build these under Settings → Custom Fields, scoped to the object listed. The same list, in flat CSV form for quick reference/ticking off as you build, is in `imports/custom_fields_master.csv`.
+Plutio lets you add custom fields to nearly any area — workspace, projects, tasks/task boards, contacts, companies, invoices, subscriptions, proposals, contracts, files, forms, conversations, schedulers, and transactions. Build each field under Settings → Custom Fields, choosing the correct scope.
 
-## Contact fields
+**Build these before your Project Templates (docs/05)** — custom field values carry over automatically when a Project Template or Task Template is applied, so the values pre-fill correctly on every new project only if the fields already exist.
+
+The same list, in flat CSV form for quick reference, is in `imports/custom_fields_master.csv`.
+
+## Contact fields (scope: Contacts → People)
 
 | Field Name | Type | Options | Required |
 |---|---|---|---|
@@ -10,7 +14,7 @@ Build these under Settings → Custom Fields, scoped to the object listed. The s
 | Social Media Handle(s) | Text | — | No |
 | Role/Title at Company | Text | — | No |
 
-## Company fields
+## Company fields (scope: Contacts → Companies)
 
 | Field Name | Type | Options | Required |
 |---|---|---|---|
@@ -18,7 +22,7 @@ Build these under Settings → Custom Fields, scoped to the object listed. The s
 | Website | URL | — | No |
 | Brand Guidelines Link | URL | — | No |
 
-## Deal fields
+## Sales Pipeline card fields (scope: the "Video Production Sales" Task Board — docs/02)
 
 | Field Name | Type | Options | Required |
 |---|---|---|---|
@@ -26,15 +30,15 @@ Build these under Settings → Custom Fields, scoped to the object listed. The s
 | Deliverable Medium | Dropdown | Video Only, Photo Only, Video + Photo | Yes |
 | Estimated Budget / Package Tier | Dropdown | Basic, Standard, Premium, Custom | Yes |
 | Target Shoot Date(s) | Date | — | No |
-| Lead Source | Dropdown | (mirrors Tags list, docs/04) | No |
-| Lost Reason | Dropdown | Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit | Only shown/required when Stage = Lost |
+| Lead Source | Dropdown | Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | No |
+| Lost Reason | Dropdown | Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit | Only when Stage = Lost |
 
-## Project fields
+## Project fields (scope: Projects)
 
 | Field Name | Type | Options | Required |
 |---|---|---|---|
-| Project Type | Dropdown | Same list as Deal → Project Type | Yes |
-| Deliverable Medium | Dropdown | Same list as Deal → Deliverable Medium | Yes |
+| Project Type | Dropdown | Commercial, Brand Story, Conference, Podcast | Yes |
+| Deliverable Medium | Dropdown | Video Only, Photo Only, Video + Photo | Yes |
 | Shoot Date(s) | Date (or multi-line text if multiple sessions) | — | Yes |
 | Shoot Location(s) | Text | — | No |
 | Number of Shoot Days | Number | — | No |
@@ -47,9 +51,7 @@ Build these under Settings → Custom Fields, scoped to the object listed. The s
 | Raw Footage Storage Link | URL | — | No |
 | Final Delivery Link | URL | — | No |
 
-## Podcast-only fields (Project object)
-
-Only relevant when Project Type = Podcast; build these in addition to the table above.
+## Podcast-only fields (scope: Projects, used only when Project Type = Podcast)
 
 | Field Name | Type | Options | Required |
 |---|---|---|---|
@@ -57,6 +59,6 @@ Only relevant when Project Type = Podcast; build these in addition to the table 
 | Distribution Platforms | Text or multi-select | e.g. Spotify, Apple Podcasts, YouTube | No |
 | Current Episode Number | Number | — | No |
 
-## Why these two Project Type fields exist twice
+## Why Project Type and Deliverable Medium each exist twice
 
-The Deal-level Project Type drives which Project Template gets applied automatically when the deal is won (docs/09, Workflow #1). The Project-level copy of the same field stays editable afterward in case scope changes mid-project.
+The Sales Pipeline card's copy of these fields determines which Project Template gets applied when you convert a won card into a Project (docs/05, docs/09 Automation #1). The Project-level copy stays independently editable afterward in case scope changes mid-project.

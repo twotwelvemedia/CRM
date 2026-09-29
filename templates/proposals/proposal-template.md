@@ -1,6 +1,6 @@
 # Video Production Proposal
 
-*Replace bracketed placeholders with SuiteDash merge tags or real content before sending. Replace all `$___` amounts with your actual pricing.*
+*Replace bracketed placeholders with Plutio merge fields or real content before sending. Replace all `$___` amounts with your actual pricing.*
 
 ---
 

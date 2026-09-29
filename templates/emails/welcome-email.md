@@ -1,4 +1,4 @@
-**Trigger:** Workflow #1 — Deal won + deposit paid, Project created
+**Trigger:** Automation #1 — Sales Pipeline card won + deposit paid, Project created
 
 **Subject:** Welcome aboard, [Client First Name] — let's make something great
 

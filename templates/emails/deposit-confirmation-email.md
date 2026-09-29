@@ -1,4 +1,4 @@
-**Trigger:** Deposit invoice marked Paid (fires alongside Workflow #1)
+**Trigger:** Deposit invoice marked Paid (fires alongside Automation #1)
 
 **Subject:** Deposit received — you're all set for [Project Name]
 

@@ -1,20 +1,23 @@
 # Client Portal
 
-For how clients actually get a login and see project progress (Portal Roles, invites, Milestones), see `docs/12-client-logins-and-progress-tracking.md`. This doc covers the portal's structure and content once they're in.
+For how clients actually get portal access and see project progress (no traditional login required, Milestone progress), see `docs/12-client-logins-and-progress-tracking.md`. This doc covers the portal's structure and content once they're in.
 
-## Portal navigation/menu items to enable
+## What the portal shows
 
-- Dashboard (default)
-- My Projects
-- Files
-- Messages
-- Invoices & Payments
-- Knowledge Base
+Every client gets a private, branded page (your logo, colors, and domain if white-labeling is set up per docs/01) with:
 
-## Folder structure per project (under Files)
+- Live project progress (Milestones — docs/05)
+- Task visibility for tasks flagged Client-Visible
+- File access
+- A payment button for any outstanding invoice
+- The ability to upload files back to you (these land in the same shared project folder you see internally)
+
+## File organization
+
+Every Project has a main Files folder. Organize it with subfolders so both you and the client can find things:
 
 ```
-/[Client Name] - [Project Name]/
+[Client Name] - [Project Name]/
   01-Contracts/
   02-Brief-and-References/
   03-Raw-Footage-and-Photo-Links/
@@ -22,11 +25,11 @@ For how clients actually get a login and see project progress (Portal Roles, inv
   05-Invoices/
 ```
 
-Create this as a folder template so it's applied consistently every time a Project is created.
+Client uploads (brand assets, signed documents, reference material) land in this same shared folder — you'll see them alongside your own files, not in a separate inbox.
 
-## Starter Knowledge Base articles
+## Client-facing FAQs (Wiki)
 
-Write these once, under LMS/Knowledge Base, and they'll answer the questions every new client asks:
+Plutio's Wiki feature can host a public-facing help center for clients, separate from your internal documentation. Write these once:
 
 1. How to request a revision
 2. Understanding your usage rights & licensing
@@ -38,4 +41,4 @@ Write these once, under LMS/Knowledge Base, and they'll answer the questions eve
 
 ## Branding
 
-Logo, primary color, and (on a paid plan) your custom portal domain are set under Settings → White Label — do this in Phase 0 of the runbook so every client-facing item you build afterward (forms, proposals, portal) already reflects your branding.
+Logo, brand colors, and your custom portal domain are set under Settings → White Label — do this in Phase 0 of the runbook so everything client-facing you build afterward (forms, proposals, portal) already reflects your branding.

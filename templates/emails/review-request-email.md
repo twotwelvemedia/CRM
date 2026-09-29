@@ -1,4 +1,4 @@
-**Trigger:** Workflow #3 — Project reaches Client Review phase
+**Trigger:** Automation #3 — Project reaches Client Review Milestone
 
 **Subject:** Your video is ready for review 🎬
 

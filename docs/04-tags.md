@@ -1,20 +1,8 @@
-# Tags
+# Tags & Labels
 
-Create these under Settings → Tags (or inline the first time you use each one — SuiteDash lets you create tags on the fly, but building the core set up front keeps everyone consistent).
+Plutio's native tagging is lighter-weight than a full taxonomy system — color tags on Projects and on People profiles, meant for quick visual grouping rather than structured, filterable categories. For anything you need to filter or report on cleanly, use a **Custom Field** (dropdown) instead of a tag — see docs/03. Reserve Plutio's native color Tags for the lightweight visual grouping below.
 
-## Lead Source
-
-- Referral
-- Website
-- Instagram
-- Google Search
-- Google Ads
-- Past Client
-- Networking Event
-- Cold Outreach
-- Other
-
-## Client Type
+## Client Type (build as a Contact/Company custom field — dropdown, not a tag)
 
 - Corporate
 - Small Business
@@ -23,27 +11,21 @@ Create these under Settings → Tags (or inline the first time you use each one 
 - Conference/Event Organizer
 - Podcast Host/Network
 
-## Priority
+## Lead Source & Lost Reason
 
-- VIP
-- Rush
-- Standard
+Already specified as Sales Pipeline card custom fields — see docs/02 and docs/03. Don't duplicate these as color tags; you'd lose the ability to filter/report on them cleanly.
 
-## Lost Reason
+## Priority (use a color Tag on the Project)
 
-(Also configured as a Deal custom field dropdown, docs/03 — tag in parallel so lost deals are filterable/searchable across the CRM.)
+- VIP — gold
+- Rush — red
+- Standard — no tag (default)
 
-- Budget Mismatch
-- Chose Competitor
-- Timing/Not Ready
-- Went Silent
-- Scope Not a Fit
+## Project Status (optional — use a color Tag on the Project)
 
-## Project Status (optional)
+Use only if you want a status view independent of which Milestone a project is on.
 
-Use only if you want a status view independent of which Project Template phase a project is in.
-
-- On Track
-- At Risk
-- Delayed
-- Awaiting Client
+- On Track — green
+- At Risk — yellow
+- Delayed — red
+- Awaiting Client — blue

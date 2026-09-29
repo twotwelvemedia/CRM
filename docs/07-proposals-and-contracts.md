@@ -2,13 +2,13 @@
 
 ## Proposals
 
-Build one Proposal Template in SuiteDash's Proposal builder using the content in `templates/proposals/proposal-template.md`. It includes three package tiers (Basic/Standard/Premium) so a client can choose without you writing a custom proposal every time — fill in your real pricing and deliverable counts before using it live.
+Build one Proposal Template using Plutio's Proposals app and the content in `templates/proposals/proposal-template.md`. It includes three package tiers (Basic/Standard/Premium) so a client can choose without you writing a custom proposal every time — fill in your real pricing and deliverable counts before using it live.
 
-Where the template shows a placeholder like `[Client Name]`, replace it with SuiteDash's actual merge tag for that field (check the merge-tag list in the Proposal editor toolbar — the available tags depend on your SuiteDash plan/version).
+Where the template shows a placeholder like `[Client Name]`, replace it with Plutio's actual merge field for that value (check the merge-field list in the Proposal editor). A proposal being signed can also fire an Automation (docs/09) to move the Sales Pipeline card forward automatically.
 
 ## Contracts
 
-Build one Contract Template using `templates/contracts/video-production-agreement.md`. Add e-signature fields for both parties. This template is a starting point covering the clauses a video production agreement typically needs (scope, payment schedule, revisions, usage rights, cancellation, ownership of raw footage, releases, liability) — **have a lawyer review it before you rely on it**, since usage rights, liability, and cancellation terms are jurisdiction- and business-specific.
+Build one Contract Template using Plutio's Contracts app and `templates/contracts/video-production-agreement.md`. Add e-signature fields for both parties. This template is a starting point covering the clauses a video production agreement typically needs (scope, payment schedule, revisions, usage rights, cancellation, ownership of raw footage, releases, liability) — **have a lawyer review it before you rely on it**, since usage rights, liability, and cancellation terms are jurisdiction- and business-specific.
 
 ## Package tiers referenced by both documents
 

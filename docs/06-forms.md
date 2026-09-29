@@ -1,6 +1,6 @@
 # Forms
 
-Build these under Forms. Where noted, a form submission triggers a Workflow (docs/09) — build the form first, then wire the workflow to it.
+Build these under Plutio's Forms builder (supports conditional logic, file uploads, date pickers, e-signature fields, and multi-page layouts). Where noted, a form submission triggers an Automation (docs/09) — build the form first, then wire the automation to it.
 
 ## Form 1 — New Inquiry (embed on your website / link from ads)
 
@@ -18,7 +18,7 @@ Build these under Forms. Where noted, a form submission triggers a Workflow (doc
 | How did you hear about us | Dropdown: Referral, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | No |
 | Referred By | Text (conditional — show if "Referral" selected) | No |
 
-On submit → Workflow #2: creates Contact + Deal in "New Lead" stage, tags Lead Source, notifies Sales/Account Manager.
+On submit → Automation #2: creates Contact + a card on the Sales Pipeline board in "New Lead" column, sets Lead Source field, notifies Sales/Account Manager.
 
 ## Form 2 — Creative Brief / Discovery Intake (send after the discovery call)
 
@@ -36,7 +36,7 @@ On submit → Workflow #2: creates Contact + Deal in "New Lead" stage, tags Lead
 | Hard Deadline | Date | Yes |
 | Special Requirements/Notes | Long Text | No |
 
-Completing this form is the exit criteria for Deal Stage 3 ("Discovery Call Completed") — see docs/02.
+Completing this form is the exit criteria for Sales Pipeline Stage 3 ("Discovery Call Completed") — see docs/02.
 
 ## Form 3 — Shoot Day Logistics (internal, shared with crew and client)
 
