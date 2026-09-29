@@ -10,7 +10,8 @@ Build these under Forms. Where noted, a form submission triggers a Workflow (doc
 | Email | Email | Yes |
 | Phone | Phone | No |
 | Company/Brand Name | Text | No |
-| Project Type | Dropdown: Commercial/Brand, Corporate/Training, Event Coverage, Wedding, Music Video, Documentary, Social Content Retainer, Other | Yes |
+| Project Type | Dropdown: Commercial, Brand Story, Conference, Podcast | Yes |
+| Deliverable Medium | Dropdown: Video Only, Photo Only, Video + Photo | Yes |
 | Estimated Budget | Dropdown: <$2.5k, $2.5k–$5k, $5k–$10k, $10k–$25k, $25k+ | Yes |
 | Desired Timeline/Deadline | Date | No |
 | Project Description | Long Text | Yes |
@@ -28,7 +29,7 @@ On submit → Workflow #2: creates Contact + Deal in "New Lead" stage, tags Lead
 | Key Message / Call to Action | Long Text | Yes |
 | Brand Guidelines Link | URL | No |
 | Reference Videos / Inspiration | Long Text or URL | No |
-| Deliverables Needed | Checkbox list: 16:9 main video, 9:16 vertical cutdowns, 1:1 square, GIFs, Raw footage | Yes |
+| Deliverables Needed | Checkbox list: 16:9 main video, 9:16 vertical cutdowns, 1:1 square, GIFs, Raw footage, Photo gallery, Podcast audio file | Yes |
 | Number of Locations | Number | No |
 | Talent Needed | Text | No |
 | On-Camera Talent Provided By | Dropdown: Client, Studio, N/A | No |

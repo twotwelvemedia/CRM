@@ -5,12 +5,14 @@ Contact,Role/Title at Company,Text,,No
 Company,Industry,Dropdown,"Corporate, Nonprofit, E-commerce/Retail, Hospitality, Real Estate, Healthcare, Education, Personal/Individual, Music/Entertainment, Other",No
 Company,Website,URL,,No
 Company,Brand Guidelines Link,URL,,No
-Deal,Project Type,Dropdown,"Commercial/Brand, Corporate/Training, Event Coverage, Wedding, Music Video, Documentary, Social Content Retainer, Other",Yes
+Deal,Project Type,Dropdown,"Commercial, Brand Story, Conference, Podcast",Yes
+Deal,Deliverable Medium,Dropdown,"Video Only, Photo Only, Video + Photo",Yes
 Deal,Estimated Budget / Package Tier,Dropdown,"Basic, Standard, Premium, Custom",Yes
 Deal,Target Shoot Date(s),Date,,No
 Deal,Lead Source,Dropdown,"Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other",No
 Deal,Lost Reason,Dropdown,"Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit","Only when Stage = Lost"
-Project,Project Type,Dropdown,"Commercial/Brand, Corporate/Training, Event Coverage, Wedding, Music Video, Documentary, Social Content Retainer, Other",Yes
+Project,Project Type,Dropdown,"Commercial, Brand Story, Conference, Podcast",Yes
+Project,Deliverable Medium,Dropdown,"Video Only, Photo Only, Video + Photo",Yes
 Project,Shoot Date(s),Date,,Yes
 Project,Shoot Location(s),Text,,No
 Project,Number of Shoot Days,Number,,No
@@ -22,3 +24,6 @@ Project,Usage Rights / License Terms,Dropdown,"Social Only, Social + Paid Ads, B
 Project,Music Licensing,Text/URL,,No
 Project,Raw Footage Storage Link,URL,,No
 Project,Final Delivery Link,URL,,No
+Project,Recording Cadence,Dropdown,"Weekly, Biweekly, Monthly, One-off","Podcast only"
+Project,Distribution Platforms,Text/Multi-select,"e.g. Spotify, Apple Podcasts, YouTube","Podcast only"
+Project,Current Episode Number,Number,,"Podcast only"

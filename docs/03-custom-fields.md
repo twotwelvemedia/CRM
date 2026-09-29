@@ -22,7 +22,8 @@ Build these under Settings → Custom Fields, scoped to the object listed. The s
 
 | Field Name | Type | Options | Required |
 |---|---|---|---|
-| Project Type | Dropdown | Commercial/Brand, Corporate/Training, Event Coverage, Wedding, Music Video, Documentary, Social Content Retainer, Other | Yes |
+| Project Type | Dropdown | Commercial, Brand Story, Conference, Podcast | Yes |
+| Deliverable Medium | Dropdown | Video Only, Photo Only, Video + Photo | Yes |
 | Estimated Budget / Package Tier | Dropdown | Basic, Standard, Premium, Custom | Yes |
 | Target Shoot Date(s) | Date | — | No |
 | Lead Source | Dropdown | (mirrors Tags list, docs/04) | No |
@@ -33,6 +34,7 @@ Build these under Settings → Custom Fields, scoped to the object listed. The s
 | Field Name | Type | Options | Required |
 |---|---|---|---|
 | Project Type | Dropdown | Same list as Deal → Project Type | Yes |
+| Deliverable Medium | Dropdown | Same list as Deal → Deliverable Medium | Yes |
 | Shoot Date(s) | Date (or multi-line text if multiple sessions) | — | Yes |
 | Shoot Location(s) | Text | — | No |
 | Number of Shoot Days | Number | — | No |
@@ -44,6 +46,16 @@ Build these under Settings → Custom Fields, scoped to the object listed. The s
 | Music Licensing | Text/URL | Track name + license source | No |
 | Raw Footage Storage Link | URL | — | No |
 | Final Delivery Link | URL | — | No |
+
+## Podcast-only fields (Project object)
+
+Only relevant when Project Type = Podcast; build these in addition to the table above.
+
+| Field Name | Type | Options | Required |
+|---|---|---|---|
+| Recording Cadence | Dropdown | Weekly, Biweekly, Monthly, One-off | Yes |
+| Distribution Platforms | Text or multi-select | e.g. Spotify, Apple Podcasts, YouTube | No |
+| Current Episode Number | Number | — | No |
 
 ## Why these two Project Type fields exist twice
 

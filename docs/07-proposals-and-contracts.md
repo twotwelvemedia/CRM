@@ -12,12 +12,12 @@ Build one Contract Template using `templates/contracts/video-production-agreemen
 
 ## Package tiers referenced by both documents
 
-Define these once and reuse them consistently across proposals, contracts, and the "Estimated Budget / Package Tier" custom field (docs/03):
+Define these once and reuse them consistently across proposals, contracts, and the "Estimated Budget / Package Tier" custom field (docs/03). These apply to Commercial, Brand Story, and Conference; Podcast is priced separately (per-episode or retainer — docs/08).
 
 | Tier | Typical fit | What differs |
 |---|---|---|
-| Basic | Simple, single-deliverable projects | 1 shoot day, 1 revision round, 16:9 only |
-| Standard | Most commercial/corporate work | Up to 2 shoot days, 2 revision rounds, 16:9 + 1 social cutdown |
-| Premium | Larger campaigns, multi-location | Multiple shoot days, 3 revision rounds, full deliverable set (16:9, 9:16, 1:1, raw footage) |
+| Basic | Simple, single-deliverable projects | 1 shoot day, 1 revision round, 16:9 video only (or a small photo gallery if Deliverable Medium = Photo Only) |
+| Standard | Most commercial/brand story work | Up to 2 shoot days, 2 revision rounds, 16:9 + 1 social cutdown, optional photo gallery add-on |
+| Premium | Larger campaigns, multi-location, or full conference coverage | Multiple shoot days/photographers, 3 revision rounds, full deliverable set (16:9, 9:16, 1:1, raw footage, full photo gallery) |
 
 Fill in your actual pricing per tier before publishing the proposal template.

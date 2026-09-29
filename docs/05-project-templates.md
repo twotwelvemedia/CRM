@@ -2,22 +2,33 @@
 
 Build these under Projects → Templates. Each one becomes a reusable task list/kanban that gets applied automatically when a deal is won (docs/09, Workflow #1), matched by the deal's **Project Type** field.
 
-Build the **Base Template** in full first. For every other project type, duplicate the Base Template and apply only the listed additions/changes — don't rebuild each one from scratch.
+Four project types only: **Commercial**, **Brand Story**, **Conference**, and **Podcast**. Commercial, Brand Story, and Conference share the same 7-phase Base Template shape (just with different emphasis per type). Podcast is structured differently — it's an ongoing/episodic show, not a single shoot-to-delivery arc — see its own section below.
+
+## Deliverable Medium: Video, Photo, or Both
+
+Every one of these four project types can involve video, photography, or both. Set the **Deliverable Medium** field (docs/03: Video Only / Photo Only / Video + Photo) on the Deal and Project, and whenever it includes Photo, fold the **Photo Add-On Tasks** below into the matching phases of whichever template you're building — don't build separate all-photo templates from scratch.
+
+### Photo Add-On Tasks (add when Deliverable Medium includes Photo)
+
+- Phase 2 — Pre-Production: add "Photo shot list confirmed" and "Photographer(s) booked"
+- Phase 3 — Production: add "Photos captured" and "Memory cards backed up on-site (2 copies minimum)"
+- Phase 4 — Post-Production: add "Photo culling/selects complete" and "Photo editing/retouching complete" and "Photo gallery prepared"
+- Phase 6 — Final Delivery: add "Photo gallery delivered via Client Portal **(Client-Visible)**"
 
 ## Client visibility: Milestones vs. Tasks
 
-Each of the 7 phases below is also a client-facing **Milestone** — this is the progress bar clients see when they log into their portal. See `docs/12-client-logins-and-progress-tracking.md` for full setup. Within the task lists, tasks marked **(Client-Visible)** should be toggled visible in SuiteDash; everything else stays Team Only.
+Each of the 7 phases in the Base Template is also a client-facing **Milestone** — the progress bar clients see in their portal. See `docs/12-client-logins-and-progress-tracking.md` for full setup. Tasks marked **(Client-Visible)** should be toggled visible in SuiteDash; everything else stays Team Only. Podcast uses a different milestone approach — see its section below.
 
 ---
 
 ## Base Template: "Standard Video Project"
 
-Use this as-is for **Commercial/Brand Video** and **Corporate/Training Video** (see their notes below for the small differences).
+Used by **Commercial**, **Brand Story**, and **Conference** — build this once, then duplicate it and apply each type's differences below.
 
 ### Phase 1 — Onboarding & Kickoff
 - [ ] Welcome email + portal invite sent (auto via Workflow #1)
 - [ ] Confirm client has portal login access (invite sent + accepted)
-- [ ] Internal kickoff: assign Producer/PM, Editor, Videographer(s)
+- [ ] Internal kickoff: assign Producer/PM, Editor, Videographer(s)/Photographer(s)
 - [ ] Confirm Creative Brief received (link to Deal)
 - [ ] Confirm deposit invoice paid
 - [ ] Schedule kickoff call with client
@@ -83,66 +94,65 @@ Use this as-is for **Commercial/Brand Video** and **Corporate/Training Video** (
 
 ---
 
-## Commercial / Brand Video — differences from Base
+## Commercial — differences from Base
 
 - Add to Phase 1: "Brand guidelines received and confirmed"
-- Add to Phase 4: "Legal/brand compliance review before delivery"
 - Add to Phase 2: "Confirm usage/media buy rights (social, paid ads, broadcast) — sets Usage Rights field and licensing fee"
+- Add to Phase 4: "Legal/brand compliance review before delivery"
 
-## Corporate / Training Video — differences from Base
+## Brand Story — differences from Base
 
-- Add to Phase 2: "Identify SMEs (subject matter experts) to interview"
-- Add to Phase 1: "Confirm internal approval chain (who signs off — may be multiple stakeholders)"
-- Add to Phase 1: "Confirm NDA/confidentiality if content is sensitive"
-- Remove: "media buy rights" task — not applicable, internal-use content
+- Add to Phase 1: "Brand guidelines received and confirmed"
+- Add to Phase 2: "Identify story subjects/interviewees"
+- Add to Phase 2: "Pre-interview calls to shape narrative and confirm key messaging"
+- Add to Phase 2: "B-roll list for brand environment/product/team"
+- Add to Phase 4: "Story/narrative edit (paper cut) before video edit"
+- Note: Brand Story projects often run longer revision cycles than a straight commercial — set Number of Revisions Included accordingly
 
-## Event Coverage — differences from Base
+## Conference — differences from Base
 
-- Add to Phase 2: "Confirm run-of-show / agenda from client"
-- Add to Phase 2: "Identify key moments not to miss (speakers, awards, etc.)"
-- Add to Phase 2: "Confirm number of cameras/operators needed — live, unrepeatable event"
-- Add to Phase 3: "Confirm backup battery/storage plan — no reshoots possible"
+- Add to Phase 1: "Confirm number of photographers/videographers needed for the event"
+- Add to Phase 2: "Confirm run-of-show/agenda from client"
+- Add to Phase 2: "Identify key moments not to miss (keynotes, panels, awards)"
+- Add to Phase 2: "Confirm number of cameras needed for simultaneous sessions"
+- Add to Phase 2: "Confirm credentialing/press access if required by the venue"
+- Add to Phase 3: "Confirm backup battery/storage plan — live, unrepeatable event, no reshoots possible"
 - Optional add to Phase 4: "Same-day highlight edit" (if sold as an add-on)
+- This is the project type most likely to have Deliverable Medium = "Video + Photo" — build the Photo Add-On Tasks above into this template by default
 
-## Wedding — differences from Base
+---
 
-- Add to Phase 2: "Get shot list / must-have moments from couple"
-- Add to Phase 2: "Coordinate timeline with photographer & other vendors"
-- Add to Phase 2: "Confirm second shooter if needed"
-- Replace Phase 3 "principal footage" with: "Capture ceremony + reception + toasts + first dance"
-- Add to Phase 4: "Confirm names/spellings for any on-screen text"
-- Replace Phase 6 delivery task with: "Deliver via private, non-expiring gallery link — no public posting without permission (check Usage Rights field)"
-- Note: Wedding packages typically include only 1 revision round — set Number of Revisions Included accordingly
-- Add to Phase 7: "Ask permission to use footage for portfolio/socials" (ties to Usage Rights field)
+## Podcast — separate structure (ongoing/episodic)
 
-## Music Video — differences from Base
+Podcast work isn't a single shoot-to-delivery arc — it's an ongoing show with recurring episodes. Build **one Project per show** (not per episode), with a one-time Show Setup phase followed by a repeating Episode Cycle task list.
 
-- Add to Phase 2: "Confirm track/stems provided + sync licensing confirmed"
-- Add to Phase 2: "Concept/treatment approved by artist/label"
-- Add to Phase 2: "Wardrobe/styling/location confirmed with artist"
-- Replace Phase 3 "principal footage" with: "Performance takes (lip sync/playback) + narrative/B-roll"
-- Add to Phase 4: "Cut to track timing precisely"
-- Add to Phase 4: "Confirm final audio sync before color pass"
+### Show Setup (one-time, at onboarding)
+- [ ] Confirm show format (interview, solo, panel) and typical episode length
+- [ ] Confirm recording location/setup (in-studio vs. remote/guest via call)
+- [ ] Confirm audio/video equipment and recording software
+- [ ] Confirm Deliverable Medium — most podcast clients want Video + Photo (episode video, audio file, and thumbnail/cover photos)
+- [ ] Build episode intro/outro template (graphics, music bed, licensing confirmed)
+- [ ] Confirm distribution platforms (Spotify, Apple Podcasts, YouTube, etc. — Distribution Platforms field, docs/03)
+- [ ] Confirm publishing cadence and set Recording Cadence field (docs/03)
+- [ ] Confirm client has portal login access (invite sent + accepted)
+- [ ] Mark "Show Setup" milestone complete
 
-## Documentary / Long-form — differences from Base
+### Episode Cycle (repeat for every episode)
+- [ ] Episode topic/guest confirmed
+- [ ] Recording scheduled (date/time, location or call link)
+- [ ] Pre-interview/questions prepared
+- [ ] Recording day: video + audio captured
+- [ ] Thumbnail/cover photos captured
+- [ ] Raw footage/audio backed up (2 copies minimum)
+- [ ] Episode edited (sync, cuts, filler-word removal)
+- [ ] Show notes/episode description drafted
+- [ ] Thumbnail/cover image designed
+- [ ] Clips/audiograms cut for social (optional add-on)
+- [ ] Episode sent for client review **(Client-Visible)**
+- [ ] Client approval received **(Client-Visible)**
+- [ ] Episode published to platforms **(Client-Visible)**
+- [ ] Episode invoice processed (per-episode billing) or confirmed included in retainer (docs/08)
 
-- Add to Phase 2: "Research & identify interview subjects"
-- Add to Phase 2: "Pre-interviews / research calls"
-- Note: shoots often span multiple sessions over weeks/months — duplicate the Phase 3 task block per session rather than treating it as a single shoot day
-- Add to Phase 4: "Story/paper edit before video edit"
-- Add to Phase 4: "Release forms confirmed for all interviewees"
-- Add to Phase 4: "Festival/distribution format specs confirmed" (if applicable)
+### Podcast Milestones — different from the standard 7
 
-## Social Media Content Package (Retainer) — separate structure
-
-This is a recurring monthly engagement, not a one-off project — build it as its own template with a single repeating phase, and duplicate the task list each month (or use SuiteDash's recurring task feature if available on your plan).
-
-### Monthly Cycle
-- [ ] Content calendar/brief confirmed for the month
-- [ ] Shoot day(s) scheduled
-- [ ] Batch shoot completed
-- [ ] Content cut into platform-specific deliverables (counts/formats per Deliverable Specs field)
-- [ ] Client review & approval
-- [ ] Content delivered/scheduled
-- [ ] Monthly performance recap sent (optional)
-- [ ] Recurring invoice processed (docs/08)
+Because a Podcast Project runs on and on rather than wrapping up once, don't use the standard 7-phase milestone bar. Instead, use a rolling milestone per episode, named clearly (e.g. "Episode 12 — Recorded," "Episode 12 — Published"), so the client's portal always shows the status of the current episode(s) rather than a single progress bar for the whole show. See `docs/12-client-logins-and-progress-tracking.md` for how this changes client login/progress setup for Podcast clients specifically.

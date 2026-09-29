@@ -26,11 +26,20 @@ Create each of these as a saved Invoice Item/Product in SuiteDash (Settings → 
 > Amount: $[Amount]
 > Terms: Net 7
 
-## 4. Monthly Retainer Invoice (Recurring)
+## 4. Podcast Episode Invoice (Per-Episode Billing)
 
-> **Social Content Package — Monthly Retainer**
-> Client: [Client Name]
+> **Podcast Production — Episode [#]**
+> Show: [Show Name]
+> Description: Recording, editing, and delivery of Episode [#], per agreement dated [Date].
+> Amount: $[Amount]
+> Terms: Net 7, invoiced on publish
+
+## 5. Podcast Monthly Retainer Invoice (Recurring)
+
+> **Podcast Production — Monthly Retainer**
+> Show: [Show Name]
 > Package tier: [Basic/Standard/Premium]
+> Covers: [X] episodes per month
 > Billing period: [Month, Year]
 > Amount: $[Monthly rate]
 > Terms: Due on the 1st, billed in advance

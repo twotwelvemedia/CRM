@@ -30,7 +30,7 @@ SuiteDash gives you two mechanisms. Use both, at different levels of detail — 
 
 ### 1. Milestones — the client's main progress view
 
-Milestones are the high-level, client-facing progress bar for a Project. Build **one Milestone per phase**, matching the phases already defined in `docs/05-project-templates.md`, for every Project Template:
+For **Commercial, Brand Story, and Conference** projects, Milestones are the high-level, client-facing progress bar. Build **one Milestone per phase**, matching the Base Template in `docs/05-project-templates.md`:
 
 1. Onboarding & Kickoff
 2. Pre-Production
@@ -41,6 +41,8 @@ Milestones are the high-level, client-facing progress bar for a Project. Build *
 7. Wrap-up / Complete
 
 As the project moves through each phase, mark the matching Milestone complete. The client's portal dashboard then shows a clean progress bar ("Post-Production — in progress") with none of your internal task-level clutter.
+
+**Podcast is different**: since a Podcast Project is one ongoing show rather than a single arc, don't use the 7-phase bar. Instead, add a rolling milestone per episode (e.g. "Episode 12 — Recorded," "Episode 12 — Published") so the client's portal always reflects the current episode's status. See the Podcast section of `docs/05-project-templates.md`.
 
 ### 2. Client-visible tasks — for the few things they need to act on
 

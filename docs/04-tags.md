@@ -19,9 +19,9 @@ Create these under Settings → Tags (or inline the first time you use each one 
 - Corporate
 - Small Business
 - Nonprofit
-- Wedding/Personal
 - Agency (white-label/subcontract work)
-- Musician/Label
+- Conference/Event Organizer
+- Podcast Host/Network
 
 ## Priority
 

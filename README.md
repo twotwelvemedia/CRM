@@ -11,7 +11,7 @@ SuiteDash is a hosted SaaS platform — there's no code to deploy here. Instead,
 
 ## Who this is scoped for
 
-A small studio/team: a producer/project manager, one or more editors, one or more videographers/shooters, and someone handling sales — running a mix of project types (commercial/brand, corporate, event coverage, weddings, music videos, documentary, and social content retainers).
+A small studio/team: a producer/project manager, one or more editors, one or more videographers/photographers, and someone handling sales — running exactly four project types: **Commercial**, **Brand Story**, **Conference**, and **Podcast**. Each can involve video, photography, or both (set per project via the Deliverable Medium field).
 
 ## Where to start
 

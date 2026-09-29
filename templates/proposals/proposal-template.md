@@ -33,8 +33,8 @@ Based on our conversation on [Discovery Call Date], here's what we understand ab
 ## Scope of Work
 
 - Pre-production: [scripting/outline, shot list, location scouting, scheduling]
-- Production: [# shoot days] on-location/studio filming
-- Post-production: editing, color grading, sound mix, graphics/titles
+- Production: [# shoot days] on-location/studio filming and/or photography ([Video Only / Photo Only / Video + Photo])
+- Post-production: editing, color grading, sound mix, graphics/titles, and/or photo culling and retouching
 - Deliverables: see package below
 
 ---
@@ -44,19 +44,19 @@ Based on our conversation on [Discovery Call Date], here's what we understand ab
 ### Basic — $___
 - 1 shoot day
 - 1 revision round
-- 1 final video (16:9)
+- 1 final video (16:9) and/or a curated photo gallery
 - Delivery within [X] business days of final footage
 
 ### Standard — $___ (Most popular)
 - Up to 2 shoot days
 - 2 revision rounds
-- 1 final video (16:9) + 1 social cutdown (9:16)
+- 1 final video (16:9) + 1 social cutdown (9:16), plus photo gallery if included
 - Delivery within [X] business days of final footage
 
 ### Premium — $___
-- Multiple shoot days ([X] included)
+- Multiple shoot days/photographers ([X] included)
 - 3 revision rounds
-- Full deliverable set: 16:9, 9:16, 1:1, plus raw footage
+- Full deliverable set: 16:9, 9:16, 1:1, raw footage, and full photo gallery
 - Delivery within [X] business days of final footage
 
 *Add-ons available on any tier: additional revision rounds, rush delivery, extra locations, additional cutdowns — priced individually.*

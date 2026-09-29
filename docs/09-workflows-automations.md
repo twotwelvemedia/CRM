@@ -11,5 +11,5 @@ Build these under Settings → Workflows (trigger → condition → action build
 | 5 | Project task "Final files delivered" is checked (Phase 6) | Send Final Invoice if not already sent → create task "Send testimonial request in 3 days" | |
 | 6 | Task "Send testimonial request" comes due | Send testimonial email (`testimonial-request-email.md`) with link to Form 5 | |
 | 7 | Deal marked "Lost" | Apply the Lost Reason tag → create task "90-day follow-up" assigned to Sales | Keeps lost leads in a nurture cycle instead of disappearing |
-| 8 | 1st of each month, for active retainer clients | Generate the recurring invoice (docs/08) → create a new "Monthly Cycle" task list from the Social Retainer template | |
+| 8 | 1st of each month, for Podcast clients on a retainer plan | Generate the recurring invoice (docs/08) → create a new "Episode Cycle" task list from the Podcast template | Skip this workflow for Podcast clients billed per-episode instead — they're invoiced via Workflow-adjacent manual step when each episode publishes |
 | 9 | All tasks in a Project phase's task list are marked complete | Mark the matching Milestone complete | Keeps the client's portal progress bar accurate — see docs/12 for the full client login/progress-tracking setup |

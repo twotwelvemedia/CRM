@@ -34,5 +34,5 @@ Build stages 1–7 as your live pipeline columns. Keep **Lost** as a terminal st
 
 ## Notes
 
-- If you run retainer/recurring clients (Social Content Package), still run the initial sale through this pipeline once. Renewals are handled as recurring invoices (docs/08), not repeat deals.
+- Podcast clients are ongoing/recurring by nature — still run the initial sale through this pipeline once. Episode billing and renewals are handled inside the Podcast Project itself (docs/05, docs/08), not as repeat deals.
 - Consider a second, lightweight "Referral / Past Client" pipeline later once volume justifies it — not needed at launch.

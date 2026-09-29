@@ -17,7 +17,7 @@ For how clients actually get a login and see project progress (Portal Roles, inv
 /[Client Name] - [Project Name]/
   01-Contracts/
   02-Brief-and-References/
-  03-Raw-Footage-Links/
+  03-Raw-Footage-and-Photo-Links/
   04-Deliverables/
   05-Invoices/
 ```

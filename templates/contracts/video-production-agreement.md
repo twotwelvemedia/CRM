@@ -1,4 +1,4 @@
-# Video Production Services Agreement
+# Video & Photography Production Services Agreement
 
 *Starting-point template only — have a lawyer review before relying on this, especially the Liability, Cancellation, and Usage Rights sections, which are jurisdiction- and business-specific. Replace all bracketed placeholders.*
 
@@ -8,7 +8,7 @@
 
 ## 1. Scope of Work
 
-Studio will provide video production services as described in the attached Proposal dated [Date] ("Deliverables"), including pre-production, production (filming), and post-production services.
+Studio will provide video and/or photography production services as described in the attached Proposal dated [Date] ("Deliverables"), including pre-production, production (filming and/or photography), and post-production services, per the Deliverable Medium specified in the Proposal.
 
 ## 2. Timeline
 
@@ -36,9 +36,9 @@ This project includes **[X] rounds of revisions** as specified in the selected p
 
 Upon receipt of full payment, Client is granted usage rights as specified: **[Social Only / Social + Paid Ads / Broadcast / Unlimited-Buyout / Personal Use Only]** (see Proposal/Project record for the specific grant). Studio retains ownership of raw footage and all copyright in the Deliverables except as expressly licensed here. Any use beyond the granted scope (e.g., paid media, broadcast, resale) requires a separate licensing agreement.
 
-## 7. Ownership of Raw Footage
+## 7. Ownership of Raw Footage & Raw Photographs
 
-Studio retains ownership of raw, unedited footage. Raw footage is not included in delivery unless purchased as part of the Premium package or as a separate add-on.
+Studio retains ownership of raw, unedited footage and unedited/unretouched photographs. Raw files are not included in delivery unless purchased as part of the Premium package or as a separate add-on.
 
 ## 8. Releases
 
