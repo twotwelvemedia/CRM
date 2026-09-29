@@ -4,6 +4,10 @@ Build these under Projects → Templates. Each one becomes a reusable task list/
 
 Build the **Base Template** in full first. For every other project type, duplicate the Base Template and apply only the listed additions/changes — don't rebuild each one from scratch.
 
+## Client visibility: Milestones vs. Tasks
+
+Each of the 7 phases below is also a client-facing **Milestone** — this is the progress bar clients see when they log into their portal. See `docs/12-client-logins-and-progress-tracking.md` for full setup. Within the task lists, tasks marked **(Client-Visible)** should be toggled visible in SuiteDash; everything else stays Team Only.
+
 ---
 
 ## Base Template: "Standard Video Project"
@@ -12,11 +16,13 @@ Use this as-is for **Commercial/Brand Video** and **Corporate/Training Video** (
 
 ### Phase 1 — Onboarding & Kickoff
 - [ ] Welcome email + portal invite sent (auto via Workflow #1)
+- [ ] Confirm client has portal login access (invite sent + accepted)
 - [ ] Internal kickoff: assign Producer/PM, Editor, Videographer(s)
 - [ ] Confirm Creative Brief received (link to Deal)
 - [ ] Confirm deposit invoice paid
 - [ ] Schedule kickoff call with client
 - [ ] Add key dates to shared calendar (shoot date, review date, delivery date)
+- [ ] Mark "Onboarding & Kickoff" milestone complete
 
 ### Phase 2 — Pre-Production
 - [ ] Finalize script / outline / interview questions
@@ -28,6 +34,7 @@ Use this as-is for **Commercial/Brand Video** and **Corporate/Training Video** (
 - [ ] Equipment list finalized & gear reserved
 - [ ] Shoot day schedule/call sheet sent to crew & client
 - [ ] Weather/backup date contingency confirmed (if outdoor)
+- [ ] Mark "Pre-Production" milestone complete
 
 ### Phase 3 — Production
 - [ ] Day-of equipment check
@@ -37,6 +44,7 @@ Use this as-is for **Commercial/Brand Video** and **Corporate/Training Video** (
 - [ ] Audio recorded and checked
 - [ ] Footage backed up on-site (2 copies minimum)
 - [ ] Footage uploaded to project storage
+- [ ] Mark "Production" milestone complete
 
 ### Phase 4 — Post-Production
 - [ ] Footage ingested & organized
@@ -48,19 +56,22 @@ Use this as-is for **Commercial/Brand Video** and **Corporate/Training Video** (
 - [ ] Color grading complete
 - [ ] Sound mix complete
 - [ ] Final internal QC (audio levels, spelling, brand compliance, specs match Deliverable Specs field)
+- [ ] Mark "Post-Production" milestone complete
 
 ### Phase 5 — Client Review & Revisions
-- [ ] Review link sent via Client Portal
+- [ ] Review link sent via Client Portal **(Client-Visible)**
 - [ ] Feedback deadline communicated
 - [ ] Revision round 1 applied
 - [ ] Revision round 2 applied (if included in package — check Number of Revisions Included field)
-- [ ] Client sign-off received
+- [ ] Client sign-off received **(Client-Visible)**
+- [ ] Mark "Client Review & Revisions" milestone complete
 
 ### Phase 6 — Final Delivery
 - [ ] Final files exported in all required formats/specs
-- [ ] Files delivered via Client Portal
+- [ ] Files delivered via Client Portal **(Client-Visible)**
 - [ ] Usage rights/license terms confirmed in writing
 - [ ] Raw footage archived per studio retention policy
+- [ ] Mark "Final Delivery" milestone complete
 
 ### Phase 7 — Wrap-up
 - [ ] Final invoice sent (auto via Workflow #5)
@@ -68,6 +79,7 @@ Use this as-is for **Commercial/Brand Video** and **Corporate/Training Video** (
 - [ ] Testimonial/review request sent (auto via Workflow #6)
 - [ ] Project marked Complete/Archived
 - [ ] Internal post-mortem (what worked / what didn't)
+- [ ] Mark "Wrap-up / Complete" milestone complete
 
 ---
 

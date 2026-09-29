@@ -1,5 +1,7 @@
 # Client Portal
 
+For how clients actually get a login and see project progress (Portal Roles, invites, Milestones), see `docs/12-client-logins-and-progress-tracking.md`. This doc covers the portal's structure and content once they're in.
+
 ## Portal navigation/menu items to enable
 
 - Dashboard (default)

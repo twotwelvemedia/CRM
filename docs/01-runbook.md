@@ -38,8 +38,9 @@ Build in this order. Each step names the SuiteDash area you'll work in and the d
 ## Phase 6 — Client Portal
 
 16. **Configure the Client Portal** — see `docs/10-client-portal.md`: menu items, per-project folder structure, and starter Knowledge Base articles.
+17. **Set up client logins & progress tracking** — see `docs/12-client-logins-and-progress-tracking.md`: Portal Roles, the invite step, and Milestones (the client-facing progress bar) for every Project Template built in Phase 3.
 
 ## Phase 7 — Go live
 
-17. **Dry run** — create a test Contact → test Deal → move it through every pipeline stage → confirm a Project auto-creates on Won → confirm each Workflow fires → confirm the client-facing Portal looks right → then delete/void the test records.
-18. **Go live** — point your real intake channel (website embed, ad landing page, etc.) at the SuiteDash form from step 10.
+18. **Dry run** — create a test Contact → invite them to the portal → test Deal → move it through every pipeline stage → confirm a Project auto-creates on Won → confirm each Workflow fires, including the milestone updates → log in as the test client and confirm they see only their own project, the milestone progress bar, and the flagged client-visible tasks → then delete/void the test records.
+19. **Go live** — point your real intake channel (website embed, ad landing page, etc.) at the SuiteDash form from step 10.

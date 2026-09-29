@@ -5,6 +5,7 @@ A complete, ready-to-implement CRM & project-management configuration for a smal
 SuiteDash is a hosted SaaS platform — there's no code to deploy here. Instead, this package gives you everything you need to configure your SuiteDash account correctly the first time:
 
 - The exact sales pipeline stages, custom fields, tags, project templates, forms, proposal/contract/invoice content, automation rules, client portal structure, and team roles for a video production business.
+- A client login system: each client gets their own portal account showing a real-time progress bar for their project (docs/12), without exposing your internal task list.
 - CSV templates to bulk-import your existing contacts, companies, and deals.
 - A step-by-step runbook that tells you the *order* to build everything in, so you're not guessing or rebuilding things twice.
 
