@@ -10,10 +10,12 @@ Plutio's left sidebar has both a **Tasks** item and a **Projects** item — thes
 
 1. Click **Tasks** in the sidebar, then create a new board (look for a "+ New Board" or similar create action).
 2. Name it **Video Production Sales**.
-3. Switch it to Kanban view if it doesn't default to one (look for a view switcher near the top of the board).
-4. Create one column per stage:
+3. Use **"Create Task Group"** to add one group per stage below — a Task Group is Plutio's name for a Kanban column. "Create Task" is a different button, for individual cards that go inside a group later; don't use it yet.
+4. Switch to Kanban/Board view if there's a view switcher near the top — that's what displays Task Groups as side-by-side columns.
 
-| # | Stage (column) | Meaning | Exit criteria |
+One Task Group per stage:
+
+| # | Stage (Task Group) | Meaning | Exit criteria |
 |---|-------|---------|----------------|
 | 1 | New Lead | Inbound inquiry, not yet contacted | First response sent within 1 business day |
 | 2 | Discovery Call Scheduled | Call booked | Call takes place |
@@ -24,7 +26,7 @@ Plutio's left sidebar has both a **Tasks** item and a **Projects** item — thes
 | 7 | Won — Contract Signed | Deposit invoice sent | Deposit paid → auto-creates Project (docs/09, Automation #1) |
 | 8 | Lost | Did not close | Lost Reason field set (below) |
 
-Keep **Lost** as a terminal column rather than deleting cards — they're your remarketing list (Automation #7, docs/09).
+Keep **Lost** as a terminal Task Group rather than deleting cards — they're your remarketing list (Automation #7, docs/09).
 
 ## Card conventions
 
