@@ -6,9 +6,12 @@ Keep this board separate from production work — sales and production are two d
 
 ## Build: "Video Production Sales" Task Board
 
-1. Create a new Task Board named **Video Production Sales**.
-2. Switch it to Kanban view.
-3. Create one column per stage:
+Plutio's left sidebar has both a **Tasks** item and a **Projects** item — these are different things. **Tasks** is where standalone Kanban boards live (boards not tied to one client's work), which is where this pipeline board belongs. **Projects** is for the actual client work built in docs/05 — don't confuse the two.
+
+1. Click **Tasks** in the sidebar, then create a new board (look for a "+ New Board" or similar create action).
+2. Name it **Video Production Sales**.
+3. Switch it to Kanban view if it doesn't default to one (look for a view switcher near the top of the board).
+4. Create one column per stage:
 
 | # | Stage (column) | Meaning | Exit criteria |
 |---|-------|---------|----------------|
