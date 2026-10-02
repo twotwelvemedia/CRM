@@ -21,7 +21,7 @@ Build in this order. Each step names the Plutio area you'll work in and the doc/
 ## Phase 3 — Projects
 
 8. **Create Project custom fields** — the remaining fields in `docs/03-custom-fields.md` (Project object, plus Podcast-only fields).
-9. **Build Project Templates with Milestones**, one per project type — see `docs/05-project-templates.md`. Each phase becomes a native Plutio Milestone with its own task list.
+9. **Build Project Templates**, one per project type — see `docs/05-project-templates.md`. Each phase becomes a Task Group with its own task list (there's no separate Milestones feature — confirmed live).
 
 ## Phase 4 — Client-facing content
 
@@ -44,5 +44,5 @@ Build in this order. Each step names the Plutio area you'll work in and the doc/
 
 ## Phase 7 — Go live
 
-20. **Dry run** — create a test Contact → test Sales Pipeline card → move it through every stage → confirm a Project auto-creates on Won → confirm each Automation fires, including Milestone progress → open the client portal link as if you were the client and confirm it shows only that project, the live progress bar, the message thread, the booking link, and the flagged client-visible tasks → then delete/void the test records.
+20. **Dry run** — create a test Contact → test Sales Pipeline card → move it through every stage → confirm a Project auto-creates on Won → confirm each Automation fires → open the client portal link as if you were the client and confirm it shows only that project, its progress, the message thread, the booking link, and the flagged client-visible tasks → then delete/void the test records.
 21. **Go live** — point your real intake channel (website embed, ad landing page, etc.) at the Plutio form from step 10.

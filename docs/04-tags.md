@@ -23,7 +23,7 @@ Already specified as Sales Pipeline card custom fields — see docs/02 and docs/
 
 ## Project Status (optional — use a color Tag on the Project)
 
-Use only if you want a status view independent of which Milestone a project is on.
+Use only if you want a status view independent of which Task Group/phase a project is on.
 
 - On Track — green
 - At Risk — yellow

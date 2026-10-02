@@ -4,7 +4,7 @@ A complete, ready-to-implement CRM & project-management configuration for a smal
 
 Plutio is a hosted, all-in-one business platform — there's no code to deploy here, same as before. This package gives you everything to configure your Plutio workspace correctly the first time:
 
-- The exact sales pipeline (built as a Task Board), custom fields, project/task templates with Milestones, forms, proposal/contract/invoice content, automation rules, client portal setup, and team roles for a video production business.
+- The exact sales pipeline (built as a Task Board), custom fields, project/task templates organized into phase-based Task Groups, forms, proposal/contract/invoice content, automation rules, client portal setup, and team roles for a video production business.
 - CSV templates to bulk-import your existing contacts and companies.
 - A step-by-step runbook (`docs/01-runbook.md`) that tells you the order to build everything in.
 

@@ -1,12 +1,12 @@
 # Client Portal
 
-For how clients actually get portal access and see project progress (no traditional login required, Milestone progress), see `docs/12-client-logins-and-progress-tracking.md`. This doc covers the portal's structure and content once they're in.
+For how clients actually get portal access and see project progress (no traditional login required), see `docs/12-client-logins-and-progress-tracking.md`. This doc covers the portal's structure and content once they're in.
 
 ## What the portal shows
 
 Every client gets a private, branded page (your logo, colors, and domain if white-labeling is set up per docs/01) with:
 
-- Live project progress (Milestones — docs/05)
+- Live project progress (Task Groups — docs/05)
 - Task visibility for tasks flagged Client-Visible
 - File access
 - A payment button for any outstanding invoice

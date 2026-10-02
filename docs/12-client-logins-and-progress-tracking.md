@@ -8,31 +8,32 @@ If you ever need stricter security for a specific client (common for law-adjacen
 
 ## Scope of what a client sees
 
-A client only ever sees their own Project(s), files, invoices, and Milestone progress — never other clients' data. If a Company has more than one stakeholder who needs visibility (e.g. a marketing director plus a finance contact), add each person as their own Contact and share the project with both — each gets their own portal link.
+A client only ever sees their own Project(s), files, invoices, and progress — never other clients' data. If a Company has more than one stakeholder who needs visibility (e.g. a marketing director plus a finance contact), add each person as their own Contact and share the project with both — each gets their own portal link.
 
 ## How progress tracking actually works
 
-Plutio's client portal shows a **live, real-time progress bar** driven by Milestones (docs/05) — this is a native feature, not something built manually out of checklists:
+Correction from earlier planning: Plutio's Projects don't have a separate "Milestones" feature with its own deadline/progress tracking — confirmed by checking a real project's tabs (Tasks, Calendar, Timesheet, Transactions, Proposals, Contracts, Conversations, Forms, Files, Wiki, nothing else). Progress is built from **Task Groups** inside the Tasks tab instead (docs/05) — the same mechanism as the Sales Pipeline board's stages.
 
-- Each of the 7 phases in the Base Template (Commercial, Brand Story, Conference) is built as its own **Milestone**, each with a deadline.
-- As tasks under a Milestone are completed, Plutio's progress calculation updates automatically.
-- Mark the Milestone **reached** once its tasks are done — Automation #9 (docs/09) can do this for you automatically when every task under it is complete.
-- The client's portal shows exactly which Milestone is current, without any of your internal task-level detail — unless a specific task is flagged **Client-Visible** (docs/05 flags which ones: review link sent, sign-off received, files delivered).
+What this means in practice:
+- Each of the 7 phases in the Base Template is a Task Group, with its tasks underneath.
+- Whatever percent-complete or progress indicator Plutio shows is calculated from tasks checked off, not from a dedicated milestone object.
+- **Still to confirm once you're in the Client Portal setup (docs/10)**: exactly what a client sees — whether it's an overall percent-complete, a breakdown by Task Group, or just the individual tasks flagged Client-Visible. Note the answer here once confirmed live, since it affects how much detail to put in front of clients.
+- In the meantime, the **(Client-Visible)** flags in docs/05 mark the specific tasks worth exposing directly (review link sent, sign-off received, files delivered) — treat those as the minimum a client should see regardless of how the overall progress indicator ends up looking.
 
-**Podcast is structured differently**: instead of one set of 7 Milestones for the whole engagement, each **episode is its own Milestone** (e.g. "Episode 12"), created fresh every cycle. The client's portal then always reflects the status of the current episode(s) rather than a single progress bar for an ongoing show that never "finishes." See the Podcast section of `docs/05-project-templates.md`.
+**Podcast is structured differently**: instead of 7 fixed Task Groups for the whole engagement, each **episode gets its own Task Group** (e.g. "Episode 12"), created fresh every cycle, so the current episode's status stays visually separate from past ones. See the Podcast section of `docs/05-project-templates.md`.
 
 ## What the client actually experiences
 
 1. Gets an email with their portal link when their card is won (Automation #1, docs/09) — no signup step.
 2. Opens the link on their phone or desktop → lands on their branded portal.
-3. Sees their Project's live Milestone progress bar (e.g. "Post-Production — in progress").
+3. Sees their Project's progress (exact presentation TBD — see above).
 4. Sees any tasks flagged Client-Visible (e.g. "Review your rough cut").
 5. Can view/download files, upload files back, view and pay invoices, and message you — all from the same link, every time.
 
 ## Setup checklist
 
 - [ ] White-labeling configured (docs/01, Phase 0) so the portal carries your branding, not Plutio's
-- [ ] Milestones built into every Project Template, matching the phases in docs/05
+- [ ] Task Groups built into every Project Template, matching the phases in docs/05
 - [ ] Client-visible tasks flagged in each Project Template
-- [ ] Automation #9 built (auto-mark Milestones reached) so progress stays accurate without manual updates
-- [ ] Test: create a dummy Contact and Project, open the portal link yourself, confirm it shows only that project, the live Milestone bar, and the flagged client-visible tasks — nothing else
+- [ ] Confirm exactly what progress indicator the client portal shows, and update this doc with the real answer
+- [ ] Test: create a dummy Contact and Project, open the portal link yourself, confirm it shows only that project, its progress, and the flagged client-visible tasks — nothing else

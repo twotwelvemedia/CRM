@@ -1,4 +1,4 @@
-**Trigger:** Automation #3 — Project reaches Client Review Milestone
+**Trigger:** Automation #3 — Project reaches Client Review phase (Task Group 5)
 
 **Subject:** Your video is ready for review 🎬
 
