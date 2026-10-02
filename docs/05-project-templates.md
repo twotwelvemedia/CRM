@@ -19,9 +19,11 @@ Every one of these four project types can involve video, photography, or both. S
 - Post-Production group: add "Photo culling/selects complete," "Photo editing/retouching complete," and "Photo gallery prepared"
 - Final Delivery group: add "Photo gallery delivered via Client Portal **(Client-Visible)**"
 
-## Client visibility: Task Groups vs. Tasks
+## Client visibility: Private by exception, not the other way around
 
-Confirm during Phase 6 (docs/10, docs/12) exactly what a client sees in their portal — whether it's overall percent-complete, per-group progress, or just the tasks flagged visible to them. Until that's confirmed live, treat the **(Client-Visible)** flags below as the tasks worth exposing directly; everything else stays internal/team-only.
+Confirmed live: every task has a visibility toggle, and tasks are **visible to the client by default** — marking one **Private** is what hides it. This is the opposite of a typical "opt in to show" model, so don't skip this step.
+
+**Mark every task in every template Private**, except the handful flagged **(Client-Visible)** below — those should be left alone (not private) so the client actually sees them. Everything else — equipment checks, internal QC, crew assignments, invoicing checkboxes, the post-mortem, all of it — gets marked Private. It's easy to forget one, so go through each Task Group deliberately rather than assuming the default is safe.
 
 ---
 

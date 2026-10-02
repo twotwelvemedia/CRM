@@ -16,9 +16,9 @@ Correction from earlier planning: Plutio's Projects don't have a separate "Miles
 
 What this means in practice:
 - Each of the 7 phases in the Base Template is a Task Group, with its tasks underneath.
-- Whatever percent-complete or progress indicator Plutio shows is calculated from tasks checked off, not from a dedicated milestone object.
-- **Still to confirm once you're in the Client Portal setup (docs/10)**: exactly what a client sees — whether it's an overall percent-complete, a breakdown by Task Group, or just the individual tasks flagged Client-Visible. Note the answer here once confirmed live, since it affects how much detail to put in front of clients.
-- In the meantime, the **(Client-Visible)** flags in docs/05 mark the specific tasks worth exposing directly (review link sent, sign-off received, files delivered) — treat those as the minimum a client should see regardless of how the overall progress indicator ends up looking.
+- **Confirmed live**: every task is visible to the client by default — marking a task **Private** is what hides it from them. This is backwards from what most tools do, so it's easy to get wrong: the safe default is to mark everything Private, then deliberately leave a few tasks un-private.
+- Tested live by sharing the TEMPLATE project and opening the portal link in an incognito window: Private tasks were confirmed hidden, everything else showed.
+- The **(Client-Visible)** flags in docs/05 mark the few tasks that should be left un-private (review link sent, sign-off received, files delivered) — mark every other task in every template Private.
 
 **Podcast is structured differently**: instead of 7 fixed Task Groups for the whole engagement, each **episode gets its own Task Group** (e.g. "Episode 12"), created fresh every cycle, so the current episode's status stays visually separate from past ones. See the Podcast section of `docs/05-project-templates.md`.
 
@@ -26,14 +26,13 @@ What this means in practice:
 
 1. Gets an email with their portal link when their card is won (Automation #1, docs/09) — no signup step.
 2. Opens the link on their phone or desktop → lands on their branded portal.
-3. Sees their Project's progress (exact presentation TBD — see above).
-4. Sees any tasks flagged Client-Visible (e.g. "Review your rough cut").
+3. Sees their Project's Task Groups and whichever tasks weren't marked Private.
+4. Sees the specific tasks left un-private (e.g. "Review your rough cut").
 5. Can view/download files, upload files back, view and pay invoices, and message you — all from the same link, every time.
 
 ## Setup checklist
 
 - [ ] White-labeling configured (docs/01, Phase 0) so the portal carries your branding, not Plutio's
 - [ ] Task Groups built into every Project Template, matching the phases in docs/05
-- [ ] Client-visible tasks flagged in each Project Template
-- [ ] Confirm exactly what progress indicator the client portal shows, and update this doc with the real answer
-- [ ] Test: create a dummy Contact and Project, open the portal link yourself, confirm it shows only that project, its progress, and the flagged client-visible tasks — nothing else
+- [ ] Every task in every template marked **Private** except the few flagged (Client-Visible) — confirmed this is backwards from the usual "opt in to show" model, so double-check each group rather than assuming
+- [ ] Test: share the project with a dummy Contact, open the portal link in an incognito window, confirm only the un-private tasks show — this exact test was run successfully against the TEMPLATE project
