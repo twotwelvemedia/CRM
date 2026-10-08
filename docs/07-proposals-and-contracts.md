@@ -2,7 +2,7 @@
 
 ## Proposals
 
-Build one Proposal Template using Plutio's Proposals app and the content in `templates/proposals/proposal-template.md`. It includes three package tiers (Basic/Standard/Premium) so a client can choose without you writing a custom proposal every time — fill in your real pricing and deliverable counts before using it live.
+Build one Proposal Template using Plutio's Proposals app and the content in `templates/proposals/proposal-template.md`. Every quote is custom — built per client based on scope and budget, not picked off a fixed price list — so the template is structured around a **Custom Quote** section you fill in each time, not preset packages.
 
 Where the template shows a placeholder like `[Client Name]`, replace it with Plutio's actual merge field for that value (check the merge-field list in the Proposal editor). A proposal being signed can also fire an Automation (docs/09) to move the Sales Pipeline card forward automatically.
 
@@ -10,14 +10,10 @@ Where the template shows a placeholder like `[Client Name]`, replace it with Plu
 
 Build one Contract Template using Plutio's Contracts app and `templates/contracts/video-production-agreement.md`. Add e-signature fields for both parties. This template is a starting point covering the clauses a video production agreement typically needs (scope, payment schedule, revisions, usage rights, cancellation, ownership of raw footage, releases, liability) — **have a lawyer review it before you rely on it**, since usage rights, liability, and cancellation terms are jurisdiction- and business-specific.
 
-## Package tiers referenced by both documents
+## Pricing is custom, not tiered
 
-Define these once and reuse them consistently across proposals, contracts, and the "Estimated Budget / Package Tier" custom field (docs/03). These apply to Commercial, Brand Story, and Conference; Podcast is priced separately (per-episode or retainer — docs/08).
+There are no fixed Basic/Standard/Premium packages — every quote reflects that specific client's scope (shoot days, revision rounds, deliverables, usage rights) and budget. What stays consistent across quotes:
 
-| Tier | Typical fit | What differs |
-|---|---|---|
-| Basic | Simple, single-deliverable projects | 1 shoot day, 1 revision round, 16:9 video only (or a small photo gallery if Deliverable Medium = Photo Only) |
-| Standard | Most commercial/brand story work | Up to 2 shoot days, 2 revision rounds, 16:9 + 1 social cutdown, optional photo gallery add-on |
-| Premium | Larger campaigns, multi-location, or full conference coverage | Multiple shoot days/photographers, 3 revision rounds, full deliverable set (16:9, 9:16, 1:1, raw footage, full photo gallery) |
-
-Fill in your actual pricing per tier before publishing the proposal template.
+- **Scope drives price**, not the reverse — define shoot days, revisions, and deliverables first, then price it, rather than fitting the client into a preset tier.
+- The **Estimated Budget Range** field (docs/03, same ranges as Form 1) is just a triage signal from the inquiry — the actual quote is whatever you build for that project, not locked to that range.
+- Every proposal's Scope of Work and Investment sections (`templates/proposals/proposal-template.md`) get written fresh per client, even though the surrounding structure (Cover, About Us, Understanding Your Needs, Timeline, Next Steps) stays the same.

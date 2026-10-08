@@ -38,8 +38,7 @@ Create each of these as a saved Invoice Item in Plutio (Financials → Items) so
 
 > **Podcast Production — Monthly Retainer**
 > Show: [Show Name]
-> Package tier: [Basic/Standard/Premium]
-> Covers: [X] episodes per month
+> Covers: [X] episodes per month, per custom agreement dated [Date]
 > Billing period: [Month, Year]
 > Amount: $[Monthly rate]
 > Terms: Due on the 1st, billed in advance

@@ -35,31 +35,25 @@ Based on our conversation on [Discovery Call Date], here's what we understand ab
 - Pre-production: [scripting/outline, shot list, location scouting, scheduling]
 - Production: [# shoot days] on-location/studio filming and/or photography ([Video Only / Photo Only / Video + Photo])
 - Post-production: editing, color grading, sound mix, graphics/titles, and/or photo culling and retouching
-- Deliverables: see package below
+- Deliverables: [list exactly what this client gets — e.g. "1 final video (16:9), 2 social cutdowns (9:16), 1 photo gallery (30 images)"]
+- Revision rounds included: [X]
 
 ---
 
-## Package Options
+## Your Investment
 
-### Basic — $___
-- 1 shoot day
-- 1 revision round
-- 1 final video (16:9) and/or a curated photo gallery
-- Delivery within [X] business days of final footage
+*Every quote here is custom to this project's scope — there's no fixed package to choose from. Build this section fresh for each client.*
 
-### Standard — $___ (Most popular)
-- Up to 2 shoot days
-- 2 revision rounds
-- 1 final video (16:9) + 1 social cutdown (9:16), plus photo gallery if included
-- Delivery within [X] business days of final footage
+| Line Item | Amount |
+|---|---|
+| Pre-production & planning | $___ |
+| Production ([X] shoot day(s)) | $___ |
+| Post-production & editing | $___ |
+| [Photo culling/retouching, if included] | $___ |
+| [Add-ons: rush delivery, extra location, additional cutdowns, etc.] | $___ |
+| **Total Investment** | **$___** |
 
-### Premium — $___
-- Multiple shoot days/photographers ([X] included)
-- 3 revision rounds
-- Full deliverable set: 16:9, 9:16, 1:1, raw footage, and full photo gallery
-- Delivery within [X] business days of final footage
-
-*Add-ons available on any tier: additional revision rounds, rush delivery, extra locations, additional cutdowns — priced individually.*
+Delivery within [X] business days of final footage.
 
 ---
 
@@ -75,17 +69,17 @@ Based on our conversation on [Discovery Call Date], here's what we understand ab
 
 ---
 
-## Investment & Payment Terms
+## Payment Terms
 
-- 50% deposit due at signing
-- 50% balance due at final delivery, Net 7
+- 50% deposit ($___) due at signing
+- 50% balance ($___) due at final delivery, Net 7
 - See attached contract for full payment terms and cancellation policy
 
 ---
 
 ## Next Steps
 
-1. Select your package
+1. Review your quote above
 2. Sign the attached contract
 3. Pay your deposit invoice
 4. We schedule your kickoff call

@@ -40,7 +40,7 @@ Add these to the Task Board under Settings → Custom Fields (scope: this board)
 
 - Project Type
 - Deliverable Medium
-- Estimated Budget / Package Tier
+- Estimated Budget Range
 - Target Shoot Date(s)
 - Lead Source
 - Lost Reason

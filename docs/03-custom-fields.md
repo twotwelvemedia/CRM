@@ -28,7 +28,7 @@ The same list, in flat CSV form for quick reference, is in `imports/custom_field
 |---|---|---|---|
 | Project Type | Dropdown | Commercial, Brand Story, Conference, Podcast | Yes |
 | Deliverable Medium | Dropdown | Video Only, Photo Only, Video + Photo | Yes |
-| Estimated Budget / Package Tier | Dropdown | Basic, Standard, Premium, Custom | Yes |
+| Estimated Budget Range | Dropdown | <$2.5k, $2.5k–$5k, $5k–$10k, $10k–$25k, $25k+ | Yes |
 | Target Shoot Date(s) | Date | — | No |
 | Lead Source | Dropdown | Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | No |
 | Lost Reason | Dropdown | Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit | Only when Stage = Lost |

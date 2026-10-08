@@ -7,7 +7,7 @@ Company,Website,URL,,No
 Company,Brand Guidelines Link,URL,,No
 Pipeline Card,Project Type,Dropdown,"Commercial, Brand Story, Conference, Podcast",Yes
 Pipeline Card,Deliverable Medium,Dropdown,"Video Only, Photo Only, Video + Photo",Yes
-Pipeline Card,Estimated Budget / Package Tier,Dropdown,"Basic, Standard, Premium, Custom",Yes
+Pipeline Card,Estimated Budget Range,Dropdown,"<$2.5k, $2.5k-$5k, $5k-$10k, $10k-$25k, $25k+",Yes
 Pipeline Card,Target Shoot Date(s),Date,,No
 Pipeline Card,Lead Source,Dropdown,"Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other",No
 Pipeline Card,Lost Reason,Dropdown,"Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit","Only when Stage = Lost"
