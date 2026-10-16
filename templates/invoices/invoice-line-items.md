@@ -18,7 +18,17 @@ Create each of these as a saved Invoice Item in Plutio (Financials → Items) so
 > Amount: $[50% of total]
 > Terms: Net 7
 
-## 3. Add-On / Change Order Invoice
+*Items 1 and 2 are for Small Business, Nonprofit, Agency, and Conference/Event Organizer clients. Corporate clients use the full-invoice item below instead — don't send a deposit invoice to a Corporate client.*
+
+## 3. Full Invoice — Net 30 (Corporate Clients)
+
+> **Video Production Services — Full Payment**
+> Project: [Project Name]
+> Full project fee due per signed agreement dated [Date]. No deposit required.
+> Amount: $[100% of total]
+> Terms: Net 30
+
+## 4. Add-On / Change Order Invoice
 
 > **Video Production — Additional Services**
 > Project: [Project Name]
@@ -26,7 +36,7 @@ Create each of these as a saved Invoice Item in Plutio (Financials → Items) so
 > Amount: $[Amount]
 > Terms: Net 7
 
-## 4. Podcast Episode Invoice (Per-Episode Billing)
+## 5. Podcast Episode Invoice (Per-Episode Billing)
 
 > **Podcast Production — Episode [#]**
 > Show: [Show Name]
@@ -34,7 +44,7 @@ Create each of these as a saved Invoice Item in Plutio (Financials → Items) so
 > Amount: $[Amount]
 > Terms: Net 7, invoiced on publish
 
-## 5. Podcast Monthly Retainer Invoice (Recurring)
+## 6. Podcast Monthly Retainer Invoice (Recurring)
 
 > **Podcast Production — Monthly Retainer**
 > Show: [Show Name]

@@ -1,21 +1,31 @@
 # Invoices & Subscriptions
 
-## Payment structure (default — adjust to your actual pricing policy)
+## Payment structure — branches by Client Type
 
+Which terms apply depends on the Company's **Client Type** field (docs/03). Set this before sending a proposal — it decides which Payment Terms block you leave in the proposal and contract.
+
+**Corporate clients:**
+- **Full invoice**: 100% of the project fee, invoiced at contract signing, Net 30.
+- No deposit — production can begin on a signed contract, payment follows on the corporate client's AP cycle.
+
+**Everyone else (Small Business, Nonprofit, Agency, Conference/Event Organizer):**
 - **Deposit**: 50% due at contract signing, before a Project is created (Automation #1 waits for this). Applies to Commercial, Brand Story, and Conference projects.
 - **Final Balance**: remaining 50% due at final delivery, Net 7.
-- **Podcast**: billed either per-episode (invoice on delivery) or as a monthly Subscription covering an agreed number of episodes.
-- **Add-ons / Change Orders**: extra revision rounds, rush fees, additional locations, additional photographers, etc. — invoiced separately as they come up, Net 7.
+
+**Podcast** (any Client Type): billed either per-episode (invoice on delivery) or as a monthly Subscription covering an agreed number of episodes — the Corporate/Small Business split above doesn't apply to recurring Podcast billing.
+
+**Add-ons / Change Orders**: extra revision rounds, rush fees, additional locations, additional photographers, etc. — invoiced separately as they come up, Net 7 regardless of Client Type.
 
 ## Invoice line items to build
 
 Exact wording in `templates/invoices/invoice-line-items.md`. Build each as a saved Invoice Item under Financials so they're reusable across invoices:
 
-1. Deposit Invoice — 50%
-2. Final Invoice — Remaining Balance
-3. Add-On / Change Order Invoice
-4. Podcast Episode Invoice (per-episode billing)
-5. Podcast Monthly Subscription (recurring)
+1. Deposit Invoice — 50% (Small Business, Nonprofit, Agency, Conference/Event Organizer)
+2. Final Invoice — Remaining Balance (same client types as above)
+3. Full Invoice — Net 30 (Corporate clients)
+4. Add-On / Change Order Invoice
+5. Podcast Episode Invoice (per-episode billing)
+6. Podcast Monthly Subscription (recurring)
 
 ## Setting up the Podcast Subscription (Financials → Subscriptions)
 

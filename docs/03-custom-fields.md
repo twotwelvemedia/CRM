@@ -18,9 +18,12 @@ The same list, in flat CSV form for quick reference, is in `imports/custom_field
 
 | Field Name | Type | Options | Required |
 |---|---|---|---|
+| Client Type | Dropdown | Corporate, Small Business, Nonprofit, Agency, Conference/Event Organizer, Podcast Host/Network | Yes |
 | Industry | Dropdown | Corporate, Nonprofit, E-commerce/Retail, Hospitality, Real Estate, Healthcare, Education, Personal/Individual, Music/Entertainment, Other | No |
 | Website | URL | — | No |
 | Brand Guidelines Link | URL | — | No |
+
+**Client Type drives payment terms** (docs/08) — Corporate clients get a single Net 30 invoice, everyone else gets the standard 50/50 deposit split. Set this field before sending a proposal, not after.
 
 ## Sales Pipeline card fields (scope: the "Video Production Sales" Task Board — docs/02)
 

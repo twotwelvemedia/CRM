@@ -17,8 +17,17 @@ Studio will use commercially reasonable efforts to meet the milestones in the at
 ## 3. Fees & Payment Schedule
 
 - Total project fee: **$[Amount]**
+
+*Keep only the applicable block, based on Client's Client Type:*
+
+**Standard clients:**
 - Deposit: **50% ($[Amount])** due upon signing, before work begins
 - Balance: **50% ($[Amount])** due upon final delivery, Net 7
+
+**Corporate clients:**
+- Full fee: **100% ($[Amount])** invoiced upon signing, Net 30
+- No deposit required; work begins upon execution of this Agreement
+
 - Late payments beyond 14 days may incur a late fee of [X]% per month
 - Additional revision rounds, rush delivery, or scope changes beyond what's listed in the Proposal will be invoiced separately as Change Orders
 
@@ -29,7 +38,7 @@ This project includes **[X] rounds of revisions** as specified in the selected p
 ## 5. Cancellation & Rescheduling
 
 - Client may reschedule a confirmed shoot date with at least [X] business days' notice at no charge; less notice may incur a rescheduling fee of **$[Amount]**.
-- If Client cancels the project after signing, the deposit is non-refundable, as it covers time and resources already committed.
+- If Client cancels the project after signing, the deposit is non-refundable (standard clients), or Studio may invoice for work completed to date (Corporate clients, no deposit), as it covers time and resources already committed.
 - If weather, illness, or other conditions outside either party's control require rescheduling a shoot, both parties will agree on a new date in good faith at no additional charge (see Force Majeure, Section 10).
 
 ## 6. Usage Rights & Licensing

@@ -71,9 +71,17 @@ Delivery within [X] business days of final footage.
 
 ## Payment Terms
 
+*Keep only the block that matches this client's Client Type field (docs/03), delete the other.*
+
+**Standard clients (Small Business, Nonprofit, Agency, Conference/Event Organizer):**
 - 50% deposit ($___) due at signing
 - 50% balance ($___) due at final delivery, Net 7
-- See attached contract for full payment terms and cancellation policy
+
+**Corporate clients:**
+- 100% ($___) invoiced at signing, Net 30
+- No deposit required
+
+See attached contract for full payment terms and cancellation policy.
 
 ---
 
@@ -81,7 +89,7 @@ Delivery within [X] business days of final footage.
 
 1. Review your quote above
 2. Sign the attached contract
-3. Pay your deposit invoice
+3. Pay your deposit invoice *(or your Net 30 invoice, for Corporate clients)*
 4. We schedule your kickoff call
 
 We're looking forward to bringing this project to life.
