@@ -2,7 +2,9 @@
 
 Build these under Plutio's Forms builder (supports conditional logic, file uploads, date pickers, e-signature fields, and multi-page layouts). Where noted, a form submission triggers an Automation (docs/09) — build the form first, then wire the automation to it.
 
-## Form 1 — New Inquiry (embed on your website / link from ads)
+## Form 1 — New Inquiry (embedded on your website / linked from ads)
+
+**Built in Tally (tally.so), not Plutio's Forms builder** — Plutio's own hosted form embeds as a slow-loading, hard-to-style iframe on an external website (confirmed first-hand). Tally is a free, lightweight form tool built for exactly this: fast embeds with a built-in transparent-background toggle, connected into Plutio via Zapier instead of living natively inside it. See docs/09, Automation #2, for the full Zapier wiring.
 
 | Field | Type | Required |
 |---|---|---|
@@ -18,7 +20,13 @@ Build these under Plutio's Forms builder (supports conditional logic, file uploa
 | How did you hear about us | Dropdown: Referral, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | No |
 | Referred By | Text (conditional — show if "Referral" selected) | No |
 
-On submit → Automation #2: creates Contact + a card on the Sales Pipeline board in "New Lead" column, sets Lead Source field, notifies Sales/Account Manager.
+### Embedding this form on your website
+
+1. Build the form in Tally with the fields above.
+2. In Tally's embed settings, turn on **Transparent Background**.
+3. Copy Tally's embed code and place it on your website in place of any Plutio form embed.
+
+On submit → Automation #2 (docs/09, via Zapier): creates a Contact + a card on the Sales Pipeline board in "New Lead" column, sets Lead Source field, notifies Sales/Account Manager.
 
 ## Form 2 — Creative Brief / Discovery Intake (send after the discovery call)
 
