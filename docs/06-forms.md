@@ -10,7 +10,8 @@ Ready-to-use file: `templates/forms/new-inquiry-embed.html` — paste its conten
 
 | Field | Type | Required |
 |---|---|---|
-| Full Name | Text | Yes |
+| First Name | Text | Yes |
+| Last Name | Text | Yes |
 | Email | Email | Yes |
 | Phone | Phone | No |
 | Company/Brand Name | Text | No |
