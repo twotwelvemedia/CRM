@@ -4,7 +4,9 @@ Build these under Plutio's Forms builder (supports conditional logic, file uploa
 
 ## Form 1 — New Inquiry (embedded on your website / linked from ads)
 
-**Built in Tally (tally.so), not Plutio's Forms builder** — Plutio's own hosted form embeds as a slow-loading, hard-to-style iframe on an external website (confirmed first-hand). Tally is a free, lightweight form tool built for exactly this: fast embeds with a built-in transparent-background toggle, connected into Plutio via Zapier instead of living natively inside it. See docs/09, Automation #2, for the full Zapier wiring.
+**Built as plain custom HTML, not Plutio's Forms builder and not a third-party form SaaS.** Plutio's own hosted form embeds as a slow-loading, hard-to-style iframe on an external website (confirmed first-hand). Every dedicated form tool we checked as an alternative (Tally, Jotform, Typeform, Paperform) gates branding removal behind a paid plan — not acceptable for a public-facing contact form. A plain HTML form living directly on the page has zero branding, loads instantly, and is fully stylable, at no extra cost.
+
+Ready-to-use file: `templates/forms/new-inquiry-embed.html` — paste its contents into a Code Embed / HTML Embed block in Showit. It includes the fields below, the conditional "Referred By" field, and a submit handler that posts to a Zapier webhook.
 
 | Field | Type | Required |
 |---|---|---|
@@ -20,13 +22,17 @@ Build these under Plutio's Forms builder (supports conditional logic, file uploa
 | How did you hear about us | Dropdown: Referral, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | No |
 | Referred By | Text (conditional — show if "Referral" selected) | No |
 
-### Embedding this form on your website
+### Connecting it to Plutio
 
-1. Build the form in Tally with the fields above.
-2. In Tally's embed settings, turn on **Transparent Background**.
-3. Copy Tally's embed code and place it on your website in place of any Plutio form embed.
+1. In Zapier, create a Zap: Trigger = **Webhooks by Zapier → Catch Hook**. Zapier gives you a webhook URL.
+2. Paste that URL into `templates/forms/new-inquiry-embed.html` where it says `PASTE_YOUR_ZAPIER_WEBHOOK_URL_HERE`.
+3. Add Zapier steps per Automation #2 (docs/09): a Filter to catch duplicate emails, then Plutio "Create Person," then Plutio "Create Task" on the Sales Pipeline board's "New Lead" column.
+4. In Showit, add a Code Embed block and paste in the finished HTML file's contents.
+5. Adjust the `--ntw-accent` color variable near the top of the file's `<style>` block to match your brand.
 
-On submit → Automation #2 (docs/09, via Zapier): creates a Contact + a card on the Sales Pipeline board in "New Lead" column, sets Lead Source field, notifies Sales/Account Manager.
+**If you'd rather not maintain a code snippet**, Tally (tally.so) is the fallback — same Zapier wiring, instant trigger, built-in transparent-background toggle, but the free tier shows a small "Tally" badge unless you upgrade to Tally Pro.
+
+On submit → Automation #2 (docs/09): creates a Contact + a card on the Sales Pipeline board in "New Lead" column, sets Lead Source field, notifies Sales/Account Manager.
 
 ## Form 2 — Creative Brief / Discovery Intake (send after the discovery call)
 

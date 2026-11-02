@@ -1,0 +1,260 @@
+<!--
+  New Inquiry form — custom HTML, no third-party branding.
+
+  HOW TO USE:
+  1. In Showit, add a Code Embed / HTML Embed block to your page.
+  2. Paste this entire file's contents into that block.
+  3. In Zapier, create a Zap: Trigger = "Webhooks by Zapier" > "Catch Hook".
+     Zapier gives you a webhook URL — copy it.
+  4. Below, find the line that says:
+       const WEBHOOK_URL = "PASTE_YOUR_ZAPIER_WEBHOOK_URL_HERE";
+     and paste your real Zapier webhook URL in place of the placeholder text.
+  5. In Zapier, add a second step: Plutio > "Create Person", mapping the
+     fields below to your Contact fields. Add a third step: Plutio >
+     "Create Task" on the Sales Pipeline board, "New Lead" column.
+  6. Adjust the colors in the :root block below to match your brand —
+     everything else references those variables.
+-->
+
+<style>
+  .ntw-form-wrap {
+    --ntw-accent: #9A3412;
+    --ntw-text: #1F2421;
+    --ntw-muted: #6B7280;
+    --ntw-border: #D1D5DB;
+    --ntw-field-bg: rgba(255, 255, 255, 0.9);
+    --ntw-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent;
+    box-sizing: border-box;
+  }
+  .ntw-form-wrap * {
+    box-sizing: border-box;
+  }
+  .ntw-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .ntw-row-pair {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .ntw-row-pair > .ntw-row {
+    flex: 1 1 220px;
+  }
+  .ntw-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ntw-text);
+  }
+  .ntw-required {
+    color: var(--ntw-accent);
+  }
+  .ntw-input,
+  .ntw-select,
+  .ntw-textarea {
+    width: 100%;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ntw-text);
+    background: var(--ntw-field-bg);
+    border: 1px solid var(--ntw-border);
+    border-radius: var(--ntw-radius);
+    padding: 10px 12px;
+  }
+  .ntw-textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+  .ntw-input:focus,
+  .ntw-select:focus,
+  .ntw-textarea:focus {
+    outline: none;
+    border-color: var(--ntw-accent);
+  }
+  .ntw-hidden {
+    display: none;
+  }
+  .ntw-submit {
+    background: var(--ntw-accent);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--ntw-radius);
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .ntw-submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+  .ntw-status {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  .ntw-status.success {
+    color: #15803D;
+  }
+  .ntw-status.error {
+    color: #B91C1C;
+  }
+  .ntw-note {
+    font-size: 12px;
+    color: var(--ntw-muted);
+    margin-top: 4px;
+  }
+</style>
+
+<div class="ntw-form-wrap">
+  <form id="ntwInquiryForm">
+    <div class="ntw-row">
+      <label class="ntw-label" for="ntwFullName">Full Name <span class="ntw-required">*</span></label>
+      <input class="ntw-input" type="text" id="ntwFullName" name="fullName" required>
+    </div>
+
+    <div class="ntw-row-pair">
+      <div class="ntw-row">
+        <label class="ntw-label" for="ntwEmail">Email <span class="ntw-required">*</span></label>
+        <input class="ntw-input" type="email" id="ntwEmail" name="email" required>
+      </div>
+      <div class="ntw-row">
+        <label class="ntw-label" for="ntwPhone">Phone</label>
+        <input class="ntw-input" type="tel" id="ntwPhone" name="phone">
+      </div>
+    </div>
+
+    <div class="ntw-row">
+      <label class="ntw-label" for="ntwCompany">Company/Brand Name</label>
+      <input class="ntw-input" type="text" id="ntwCompany" name="company">
+    </div>
+
+    <div class="ntw-row-pair">
+      <div class="ntw-row">
+        <label class="ntw-label" for="ntwProjectType">Project Type <span class="ntw-required">*</span></label>
+        <select class="ntw-select" id="ntwProjectType" name="projectType" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="Commercial">Commercial</option>
+          <option value="Brand Story">Brand Story</option>
+          <option value="Conference">Conference</option>
+          <option value="Podcast">Podcast</option>
+        </select>
+      </div>
+      <div class="ntw-row">
+        <label class="ntw-label" for="ntwDeliverableMedium">Deliverable Medium <span class="ntw-required">*</span></label>
+        <select class="ntw-select" id="ntwDeliverableMedium" name="deliverableMedium" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="Video Only">Video Only</option>
+          <option value="Photo Only">Photo Only</option>
+          <option value="Video + Photo">Video + Photo</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="ntw-row-pair">
+      <div class="ntw-row">
+        <label class="ntw-label" for="ntwBudget">Estimated Budget <span class="ntw-required">*</span></label>
+        <select class="ntw-select" id="ntwBudget" name="estimatedBudgetRange" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="<$2.5k">Under $2.5k</option>
+          <option value="$2.5k-$5k">$2.5k – $5k</option>
+          <option value="$5k-$10k">$5k – $10k</option>
+          <option value="$10k-$25k">$10k – $25k</option>
+          <option value="$25k+">$25k+</option>
+        </select>
+      </div>
+      <div class="ntw-row">
+        <label class="ntw-label" for="ntwTimeline">Desired Timeline/Deadline</label>
+        <input class="ntw-input" type="date" id="ntwTimeline" name="desiredTimeline">
+      </div>
+    </div>
+
+    <div class="ntw-row">
+      <label class="ntw-label" for="ntwDescription">Project Description <span class="ntw-required">*</span></label>
+      <textarea class="ntw-textarea" id="ntwDescription" name="projectDescription" required></textarea>
+    </div>
+
+    <div class="ntw-row">
+      <label class="ntw-label" for="ntwHowHeard">How did you hear about us?</label>
+      <select class="ntw-select" id="ntwHowHeard" name="leadSource">
+        <option value="" disabled selected>Select one</option>
+        <option value="Referral">Referral</option>
+        <option value="Instagram">Instagram</option>
+        <option value="Google Search">Google Search</option>
+        <option value="Google Ads">Google Ads</option>
+        <option value="Past Client">Past Client</option>
+        <option value="Networking Event">Networking Event</option>
+        <option value="Cold Outreach">Cold Outreach</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="ntw-row ntw-hidden" id="ntwReferredByRow">
+      <label class="ntw-label" for="ntwReferredBy">Who referred you?</label>
+      <input class="ntw-input" type="text" id="ntwReferredBy" name="referredBy">
+    </div>
+
+    <button class="ntw-submit" type="submit" id="ntwSubmitBtn">Send Inquiry</button>
+    <div class="ntw-status" id="ntwStatus"></div>
+  </form>
+</div>
+
+<script>
+(function () {
+  const WEBHOOK_URL = "PASTE_YOUR_ZAPIER_WEBHOOK_URL_HERE";
+
+  const form = document.getElementById("ntwInquiryForm");
+  const howHeard = document.getElementById("ntwHowHeard");
+  const referredByRow = document.getElementById("ntwReferredByRow");
+  const submitBtn = document.getElementById("ntwSubmitBtn");
+  const status = document.getElementById("ntwStatus");
+
+  howHeard.addEventListener("change", function () {
+    referredByRow.classList.toggle("ntw-hidden", howHeard.value !== "Referral");
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (WEBHOOK_URL.indexOf("PASTE_YOUR_ZAPIER_WEBHOOK_URL_HERE") !== -1) {
+      status.textContent = "Form isn't connected yet — add your Zapier webhook URL in the embed code.";
+      status.className = "ntw-status error";
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    status.textContent = "";
+    status.className = "ntw-status";
+
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("Request failed");
+        form.reset();
+        referredByRow.classList.add("ntw-hidden");
+        status.textContent = "Thanks! We'll be in touch soon.";
+        status.className = "ntw-status success";
+      })
+      .catch(function () {
+        status.textContent = "Something went wrong — please try again or email us directly.";
+        status.className = "ntw-status error";
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Inquiry";
+      });
+  });
+})();
+</script>
