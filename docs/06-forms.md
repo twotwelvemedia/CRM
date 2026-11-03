@@ -33,7 +33,7 @@ Ready-to-use file: `templates/forms/new-inquiry-embed.html` — paste its conten
 
 **If you'd rather not maintain a code snippet**, Tally (tally.so) is the fallback — same Zapier wiring, instant trigger, built-in transparent-background toggle, but the free tier shows a small "Tally" badge unless you upgrade to Tally Pro.
 
-On submit → Automation #2 (docs/09): creates a Contact + a card on the Sales Pipeline board in "New Lead" column, sets Lead Source field, notifies Sales/Account Manager.
+On submit → Automation #2 (docs/09): creates a Contact in Plutio, then emails Sales/Account Manager (info@two-twelvemedia.com) with the full submission. Sales adds the Sales Pipeline card to "New Lead" by hand — Zapier's Plutio integration can't create a task on a standalone Task Board directly.
 
 ## Form 2 — Creative Brief / Discovery Intake (send after the discovery call)
 
