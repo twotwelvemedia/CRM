@@ -30,6 +30,10 @@ What this means in practice:
 4. Sees the specific tasks left un-private (e.g. "Review your rough cut").
 5. Can view/download files, upload files back, view and pay invoices, and message you — all from the same link, every time.
 
+## Optional: a friendlier visual tracker
+
+Plutio's own portal view above works, but it's a raw task checklist — not the clearest "where's my project" view for a client. `templates/client-portal/project-status-tracker.html` is a standalone, self-contained status page that shows the same journey (the 7 Base Template phases, or the 5-step episode flow for Podcast) as a simple step tracker with a "you are here" marker. It has no connection to Plutio's data — duplicate it per client/project, edit the `TRACKER_CONFIG` block at the bottom of the file to set the current stage, and either host it as an unlisted page / Showit embed or just send the client the .html file directly. See the usage notes in the file's header comment.
+
 ## Setup checklist
 
 - [ ] White-labeling configured (docs/01, Phase 0) so the portal carries your branding, not Plutio's

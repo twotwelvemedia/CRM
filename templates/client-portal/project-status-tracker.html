@@ -1,0 +1,360 @@
+<!--
+  Client Project Status Tracker — standalone HTML, no third-party branding.
+
+  WHAT THIS IS
+  Plutio's client portal shows raw task checklists (docs/12), which works but
+  isn't very visual. This is a simple "where's my project" tracker page —
+  one page per client, showing the 7 phases from the Base Template
+  (docs/05-project-templates.md) as a step-by-step journey with a clear
+  "you are here" marker.
+
+  HOW TO USE
+  1. Duplicate this file per active client/project (e.g.
+     "status-acme-brand-story.html") — this is filled in and updated by hand,
+     it has no connection to Plutio's data.
+  2. Edit the TRACKER_CONFIG object near the bottom of this file: client name,
+     project name, project type, and which stage they're currently in.
+     Update currentStageIndex (and optionally stageDates / currentStageNote)
+     each time the project moves to a new phase.
+  3. Share it with the client one of two ways:
+       a) Host the file on an unlisted page of your website (Showit: add it
+          as a page, or embed the contents of <body> into a Code Embed
+          block) and send the client that link.
+       b) Just email/attach the .html file directly — it opens in any
+          browser with no server needed.
+  4. For Podcast clients, set projectType to "Podcast" — the stage list
+     automatically switches to the episode-based steps. Duplicate the file
+     per episode (or just bump currentStageIndex back to 0 and update
+     projectName to the episode title each time a new episode starts).
+  5. Adjust colors in the :root block below to match your brand — everything
+     else references those variables. Defaults match
+     templates/forms/new-inquiry-embed.html.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Status</title>
+<style>
+  :root {
+    --pst-accent: #D97706;
+    --pst-bg: #18181B;
+    --pst-card-bg: #20201F;
+    --pst-text: #F5F5F4;
+    --pst-muted: #A3A3A3;
+    --pst-border: #52525B;
+    --pst-done: #4ADE80;
+    --pst-radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--pst-bg);
+    color: var(--pst-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .pst-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+  .pst-brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--pst-accent);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .pst-header h1 {
+    font-size: 22px;
+    margin: 0 0 4px;
+  }
+  .pst-header .pst-sub {
+    font-size: 14px;
+    color: var(--pst-muted);
+    margin: 0 0 24px;
+  }
+  .pst-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--pst-accent);
+    border: 1px solid var(--pst-accent);
+    border-radius: 999px;
+    padding: 3px 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .pst-summary {
+    background: var(--pst-card-bg);
+    border: 1px solid var(--pst-border);
+    border-radius: var(--pst-radius);
+    padding: 16px 18px;
+    margin-bottom: 36px;
+  }
+  .pst-summary-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .pst-summary-top .pst-stage-label {
+    font-weight: 700;
+    color: var(--pst-text);
+  }
+  .pst-summary-top .pst-stage-count {
+    color: var(--pst-muted);
+  }
+  .pst-progress-track {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .pst-progress-fill {
+    height: 100%;
+    background: var(--pst-accent);
+    border-radius: 999px;
+    transition: width 0.3s ease;
+  }
+  .pst-eta {
+    font-size: 12px;
+    color: var(--pst-muted);
+    margin-top: 10px;
+  }
+  .pst-stages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pst-stage {
+    display: flex;
+    gap: 16px;
+  }
+  .pst-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 28px;
+    flex: 0 0 28px;
+  }
+  .pst-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 28px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 2px solid var(--pst-border);
+    color: var(--pst-muted);
+    background: var(--pst-bg);
+  }
+  .pst-line {
+    width: 2px;
+    flex: 1 1 auto;
+    background: var(--pst-border);
+    margin: 2px 0;
+    min-height: 28px;
+  }
+  .pst-stage:last-child .pst-line { display: none; }
+  .pst-content {
+    flex: 1 1 auto;
+    padding-bottom: 28px;
+  }
+  .pst-stage-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pst-muted);
+    margin-bottom: 4px;
+  }
+  .pst-stage-blurb {
+    font-size: 13px;
+    color: var(--pst-muted);
+    line-height: 1.5;
+  }
+  .pst-stage-date,
+  .pst-stage-note {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .pst-stage-date { color: var(--pst-done); }
+  .pst-stage-note {
+    color: var(--pst-accent);
+    font-weight: 600;
+  }
+
+  /* Completed stage */
+  .pst-done .pst-dot {
+    border-color: var(--pst-done);
+    background: var(--pst-done);
+    color: #0A2E1C;
+  }
+  .pst-done .pst-line { background: var(--pst-done); }
+  .pst-done .pst-stage-name { color: var(--pst-text); }
+
+  /* Current stage */
+  .pst-current .pst-dot {
+    border-color: var(--pst-accent);
+    background: var(--pst-accent);
+    color: #FFFFFF;
+    box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.25);
+  }
+  .pst-current .pst-stage-name { color: var(--pst-text); }
+  .pst-current .pst-stage-blurb { color: var(--pst-text); }
+
+  .pst-footer {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--pst-muted);
+    border-top: 1px solid var(--pst-border);
+    padding-top: 20px;
+  }
+  .pst-footer a { color: var(--pst-accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="pst-wrap">
+  <div class="pst-brand">Two Twelve Media</div>
+
+  <div class="pst-header">
+    <h1 id="pstTitle">Project Status</h1>
+    <p class="pst-sub" id="pstSubtitle"></p>
+  </div>
+
+  <div class="pst-summary">
+    <div class="pst-summary-top">
+      <span class="pst-stage-label" id="pstCurrentLabel"></span>
+      <span class="pst-stage-count" id="pstStageCount"></span>
+    </div>
+    <div class="pst-progress-track">
+      <div class="pst-progress-fill" id="pstProgressFill"></div>
+    </div>
+    <div class="pst-eta" id="pstEta"></div>
+  </div>
+
+  <ul class="pst-stages" id="pstStages"></ul>
+
+  <div class="pst-footer">
+    Questions about where things stand? Message us anytime through your client portal, or reply to any project email — we're happy to fill you in.
+  </div>
+</div>
+
+<script>
+(function () {
+
+  // ---- Edit everything in this block for each client/project ----
+  const TRACKER_CONFIG = {
+    clientName: "Jane Doe",
+    projectName: "Spring Brand Story",
+    projectType: "Brand Story",   // "Commercial" | "Brand Story" | "Conference" | "Podcast"
+    currentStageIndex: 2,          // 0-based — which stage they're in right now
+    currentStageNote: "",          // optional, e.g. "Rough cut going out for review this Friday."
+    stageDates: {
+      // 0: "Oct 20, 2026",
+      // 1: "Oct 28, 2026"
+    },
+    estimatedDelivery: ""          // optional, e.g. "Dec 15, 2026"
+  };
+  // -----------------------------------------------------------------
+
+  const BASE_STAGES = [
+    { name: "Onboarding & Kickoff", blurb: "Brief confirmed, deposit received, and your kickoff call scheduled." },
+    { name: "Pre-Production", blurb: "Script, shot list, locations, and crew locked in." },
+    { name: "Production", blurb: "Filming / photography day(s) happen here." },
+    { name: "Post-Production", blurb: "Editing, color, sound, and graphics underway." },
+    { name: "Review & Revisions", blurb: "Your cut is ready — feedback and revisions happen here." },
+    { name: "Final Delivery", blurb: "Final files delivered to you." },
+    { name: "Complete", blurb: "Project wrapped up." }
+  ];
+
+  const PODCAST_STAGES = [
+    { name: "Episode Scheduled", blurb: "Topic, guest, and recording date confirmed." },
+    { name: "Recording Day", blurb: "Episode recorded (video + audio)." },
+    { name: "Editing", blurb: "Edit, show notes, and cover art in progress." },
+    { name: "Review & Approval", blurb: "Your review and sign-off happen here." },
+    { name: "Published", blurb: "Episode live on your distribution platforms." }
+  ];
+
+  const stages = TRACKER_CONFIG.projectType === "Podcast" ? PODCAST_STAGES : BASE_STAGES;
+  const currentIndex = Math.max(0, Math.min(TRACKER_CONFIG.currentStageIndex, stages.length - 1));
+
+  document.title = TRACKER_CONFIG.projectName + " — Project Status";
+  document.getElementById("pstTitle").textContent = TRACKER_CONFIG.projectName;
+  document.getElementById("pstSubtitle").textContent =
+    TRACKER_CONFIG.clientName + " · " + TRACKER_CONFIG.projectType;
+
+  document.getElementById("pstCurrentLabel").textContent = "Currently: " + stages[currentIndex].name;
+  document.getElementById("pstStageCount").textContent =
+    "Stage " + (currentIndex + 1) + " of " + stages.length;
+
+  const progressPct = (currentIndex / (stages.length - 1)) * 100;
+  document.getElementById("pstProgressFill").style.width = progressPct + "%";
+
+  const etaEl = document.getElementById("pstEta");
+  if (TRACKER_CONFIG.estimatedDelivery) {
+    etaEl.textContent = "Estimated delivery: " + TRACKER_CONFIG.estimatedDelivery;
+  } else {
+    etaEl.remove();
+  }
+
+  const list = document.getElementById("pstStages");
+  stages.forEach(function (stage, i) {
+    const status = i < currentIndex ? "done" : i === currentIndex ? "current" : "upcoming";
+
+    const li = document.createElement("li");
+    li.className = "pst-stage pst-" + status;
+
+    const marker = document.createElement("div");
+    marker.className = "pst-marker";
+    const dot = document.createElement("div");
+    dot.className = "pst-dot";
+    dot.textContent = status === "done" ? "✓" : String(i + 1);
+    marker.appendChild(dot);
+    const line = document.createElement("div");
+    line.className = "pst-line";
+    marker.appendChild(line);
+    li.appendChild(marker);
+
+    const content = document.createElement("div");
+    content.className = "pst-content";
+
+    const name = document.createElement("div");
+    name.className = "pst-stage-name";
+    name.textContent = stage.name;
+    content.appendChild(name);
+
+    const blurb = document.createElement("div");
+    blurb.className = "pst-stage-blurb";
+    blurb.textContent = stage.blurb;
+    content.appendChild(blurb);
+
+    if (status === "done" && TRACKER_CONFIG.stageDates[i]) {
+      const date = document.createElement("div");
+      date.className = "pst-stage-date";
+      date.textContent = "Completed " + TRACKER_CONFIG.stageDates[i];
+      content.appendChild(date);
+    }
+
+    if (status === "current" && TRACKER_CONFIG.currentStageNote) {
+      const note = document.createElement("div");
+      note.className = "pst-stage-note";
+      note.textContent = TRACKER_CONFIG.currentStageNote;
+      content.appendChild(note);
+    }
+
+    li.appendChild(content);
+    list.appendChild(li);
+  });
+
+})();
+</script>
+
+</body>
+</html>
