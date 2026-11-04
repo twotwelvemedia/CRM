@@ -44,5 +44,5 @@ Build in this order. Each step names the Plutio area you'll work in and the doc/
 
 ## Phase 7 — Go live
 
-20. **Dry run** — create a test Contact → test Sales Pipeline card → move it through every stage → confirm a Project auto-creates on Won → confirm each Automation fires → open the client portal link as if you were the client and confirm it shows only that project, its progress, the message thread, the booking link, and the flagged client-visible tasks → then delete/void the test records.
+20. **Dry run** — create a test Contact → test Sales Pipeline card → move it through every stage by hand → manually create a test Project from the matching template and add the test Contact as its Client → confirm the Kickoff call task auto-creates (Automation #1) and the invite email sends natively → confirm each remaining Automation fires → open the client portal link as if you were the client and confirm it shows only that project, its progress, the message thread, the booking link, and the flagged client-visible tasks → then delete/void the test records.
 21. **Go live** — point your real intake channel (website embed, ad landing page, etc.) at the custom HTML form built in step 10 (not a Plutio-hosted form — see docs/06 and `templates/forms/new-inquiry-embed.html`).
