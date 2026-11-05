@@ -1,42 +1,48 @@
 # Client Portal Access & Progress Tracking
 
-## How clients actually get in — no traditional login
+## How clients actually get in — password-based, invitation-triggered
 
-This is the biggest mechanical difference from the original SuiteDash version of this package: **Plutio clients don't create an account or set a password.** Each client gets a private, unique portal link by email, tied to their Contact record and their Project(s). They click it, and their branded portal opens — nothing to install, nothing to remember. This is arguably better for your "mobile app friendly" requirement: there's no signup friction on a phone, no forgotten-password support requests, just a link that opens straight into a mobile-optimized page.
+**Correction from earlier (Plutio-era) planning:** this is the biggest mechanical difference from the original Plutio version of this package. Plutio clients got a no-password, repeat-use link. **SuiteDash clients set a password.** Confirmed via the live Add Contact form's own help text (quoted verbatim):
 
-If you ever need stricter security for a specific client (common for law-adjacent or highly sensitive work — not typical for video production), Plutio supports an optional password-protected portal mode. Default to the link-based model for every project type in this package unless a client specifically requires otherwise.
+> "The Portal Access Invitation is an email that is sent to users, granting them immediate access to your Portal. It provides a uniquely coded link that will prompt the recipient to set their password and enter the Portal. When you add a new user, they will NOT be able to access the Portal until the Portal Access Invitation is sent."
+
+In practice:
+1. A Contact's **Role** is set to **Client** (or **Prospect**) — Leads don't get portal access.
+2. At that point you choose whether to **Send Portal Access Invitation Immediately**, or hold off and trigger it later (manually, or via an Automation).
+3. The invitation email contains a one-time coded link. Clicking it prompts the client to **set a password**.
+4. From then on, it's a normal password-based login (via the Portal's login page) — not a repeat-use magic link like the old Plutio model.
+
+This is a real (minor) onboarding step for the client — one password-set click the first time, then standard login after. Automation #2 (docs/09) handles the Contact-creation side of this when a new inquiry comes in; sending the actual invitation is still a manual or automation-triggered step, not automatic on Contact creation.
 
 ## Scope of what a client sees
 
-A client only ever sees their own Project(s), files, invoices, and progress — never other clients' data. If a Company has more than one stakeholder who needs visibility (e.g. a marketing director plus a finance contact), add each person as their own Contact and share the project with both — each gets their own portal link.
+A client only ever sees their own Project(s), files, invoices, and progress — never other clients' data. If a Company has more than one stakeholder who needs visibility (e.g. a marketing director plus a finance contact), add each person as their own Contact with their own Role/portal access.
 
 ## How progress tracking actually works
 
-Correction from earlier planning: Plutio's Projects don't have a separate "Milestones" feature with its own deadline/progress tracking — confirmed by checking a real project's tabs (Tasks, Calendar, Timesheet, Transactions, Proposals, Contracts, Conversations, Forms, Files, Wiki, nothing else). Progress is built from **Task Groups** inside the Tasks tab instead (docs/05) — the same mechanism as the Sales Pipeline board's stages.
+Progress is built from **Task Groups** inside each Project's Tasks area (docs/05) — same underlying mechanism as the Sales Pipeline board's stages.
 
-What this means in practice:
-- Each of the 7 phases in the Base Template is a Task Group, with its tasks underneath.
-- **Confirmed live**: every task is visible to the client by default — marking a task **Private** is what hides it from them. This is backwards from what most tools do, so it's easy to get wrong: the safe default is to mark everything Private, then deliberately leave a few tasks un-private.
-- Tested live by sharing the TEMPLATE project and opening the portal link in an incognito window: Private tasks were confirmed hidden, everything else showed.
-- The **(Client-Visible)** flags in docs/05 mark the few tasks that should be left un-private (review link sent, sign-off received, files delivered) — mark every other task in every template Private.
+**Correction from earlier (Plutio-era) planning:** there is no per-task "Private" flag in SuiteDash — see docs/05's "Client visibility" section for the full correction. The actual mechanism: a task's **Assigned To** field must be set to **Client** for it to surface in the client's portal (the "Client Tasks" dashboard widget); everything else (Assigned To any internal role or named staff) stays internal-only. A second toggle, **Request Client Approval?**, appears once Assigned To = Client — use it on sign-off/approval tasks specifically.
+
+The **(Client-Visible)** flags in docs/05 mark which tasks need Assigned To switched to Client when a real Project is created from a template. **As of this writing, that switch hasn't been made yet in the 4 templates** (see docs/05's "Known gap" note) — it needs to be done by hand in the SuiteDash UI, either once in each template or per-project after Start from Template.
 
 **Podcast is structured differently**: instead of 7 fixed Task Groups for the whole engagement, each **episode gets its own Task Group** (e.g. "Episode 12"), created fresh every cycle, so the current episode's status stays visually separate from past ones. See the Podcast section of `docs/05-project-templates.md`.
 
 ## What the client actually experiences
 
-1. Gets an email with their portal link when their card is won (Automation #1, docs/09) — no signup step.
-2. Opens the link on their phone or desktop → lands on their branded portal.
-3. Sees their Project's Task Groups and whichever tasks weren't marked Private.
-4. Sees the specific tasks left un-private (e.g. "Review your rough cut").
-5. Can view/download files, upload files back, view and pay invoices, and message you — all from the same link, every time.
+1. Gets a Portal Access Invitation email (sent manually by the team, or via an Automation) the first time they need portal access — sets a password on first click.
+2. Logs into the Portal with that password going forward (desktop or phone).
+3. Lands on the **Multi-Purpose Client Dashboard** — their branded landing page with a Dashboard Summary, Easy Navigation buttons (Send a Message / Book a Meeting / Your Agreements), a Client Tasks widget, a Projects widget, file upload/download, and the Client FAQs Knowledge Base (docs/10).
+4. The Client Tasks widget shows only tasks where Assigned To = Client on their Project(s) — see the gap note above.
+5. Can view/download files, upload files back, view and pay invoices, and message the team — all from the same portal login.
 
 ## Optional: a friendlier visual tracker
 
-Plutio's own portal view above works, but it's a raw task checklist — not the clearest "where's my project" view for a client. `templates/client-portal/project-status-tracker.html` is a standalone, self-contained status page that shows the same journey (the 7 Base Template phases, or the 5-step episode flow for Podcast) as a simple step tracker with a "you are here" marker. It has no connection to Plutio's data — duplicate it per client/project, edit the `TRACKER_CONFIG` block at the bottom of the file to set the current stage, and either host it as an unlisted page / Showit embed or just send the client the .html file directly. See the usage notes in the file's header comment.
+The native Client Tasks widget works, but it's a raw task list — not the clearest "where's my project" view for a client. `templates/client-portal/project-status-tracker.html` is a standalone, self-contained status page that shows the same journey (the 7 Base Template phases, or the 5-step episode flow for Podcast) as a simple step tracker with a "you are here" marker. It has no connection to SuiteDash's data — duplicate it per client/project, edit the `TRACKER_CONFIG` block at the bottom of the file to set the current stage, and either host it as an unlisted page / Showit embed or just send the client the .html file directly. See the usage notes in the file's header comment.
 
 ## Setup checklist
 
-- [ ] White-labeling configured (docs/01, Phase 0) so the portal carries your branding, not Plutio's
-- [ ] Task Groups built into every Project Template, matching the phases in docs/05
-- [ ] Every task in every template marked **Private** except the few flagged (Client-Visible) — confirmed this is backwards from the usual "opt in to show" model, so double-check each group rather than assuming
-- [ ] Test: share the project with a dummy Contact, open the portal link in an incognito window, confirm only the un-private tasks show — this exact test was run successfully against the TEMPLATE project
+- [x] White-labeling configured (docs/01, Phase 0) so the portal carries your branding
+- [x] Task Groups built into all 4 Project Templates, matching the phases in docs/05
+- [ ] **Not yet done**: switch Assigned To → Client (+ Request Client Approval where noted) on the 13 (Client-Visible)-flagged tasks across the 4 templates — see docs/05's "Known gap" note for exactly which tasks and why this is still outstanding
+- [ ] Test once real projects exist: create a test Project from a template, invite a test Client contact, confirm only the Assigned-to-Client tasks show in their portal's Client Tasks widget

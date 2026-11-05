@@ -1,6 +1,6 @@
 # Client Portal
 
-For how clients actually get portal access and see project progress (no traditional login required), see `docs/12-client-logins-and-progress-tracking.md`. This doc covers the portal's structure and content once they're in.
+For how clients actually get portal access (password-based, via an emailed invitation) and how task progress visibility actually works, see `docs/12-client-logins-and-progress-tracking.md`. This doc covers the portal's structure and content once they're in.
 
 ## What the portal shows
 
@@ -29,17 +29,21 @@ Every Project has a main Files folder. Organize it with subfolders so both you a
 
 Client uploads (brand assets, signed documents, reference material) land in this same shared folder — you'll see them alongside your own files, not in a separate inbox.
 
-## Client-facing FAQs (Wiki)
+## Client-facing FAQs (Knowledge Base)
 
-Plutio's Wiki feature can host a public-facing help center for clients, separate from your internal documentation. Write these once:
+**Built and live.** SuiteDash's Knowledge Base module (not a "Wiki" — that's Plutio's term) hosts the public-facing help center for clients, separate from internal documentation. A Knowledge Base called **"Client FAQs"** exists under Knowledge Base Pages, with one Category ("Working With Us") and all 7 planned articles published:
 
-1. How to request a revision
-2. Understanding your usage rights & licensing
-3. File formats & specs we deliver
-4. How to download your final files
-5. Our revision policy (how many rounds are included, what counts as a new request vs. an add-on)
-6. Payment methods we accept & our late payment policy
-7. What to expect on shoot day (for clients being filmed/interviewed)
+1. How to Request a Revision
+2. Understanding Your Usage Rights & Licensing
+3. File Formats & Specs We Deliver
+4. How to Download Your Final Files
+5. Our Revision Policy
+6. Payment Methods We Accept & Late Payment Policy
+7. What to Expect on Shoot Day
+
+Each article was built using the Knowledge Base's rich-text article editor. **Placement:** a Knowledge Base isn't visible anywhere by default — it has to be explicitly placed on a page or dashboard via the module's Placements tab. The "Client FAQs" Knowledge Base is placed as a block on the **Multi-Purpose Client Dashboard** (the main landing page clients see when they log into the portal), titled "Client FAQs," showing up to 5 results. Confirm via `Knowledge Base Pages → Client FAQs → Placements` — it should list "Multi-Purpose Client Dashboard."
+
+If you want the FAQs reachable from elsewhere too (e.g. the standalone "How to Prepare for a Video Production" Portal Page), add another Knowledge Base block there the same way — Placements will list every page/dashboard it's been added to.
 
 ## Branding
 

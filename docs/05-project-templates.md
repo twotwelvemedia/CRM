@@ -1,6 +1,6 @@
 # Project Templates
 
-Build these as a real Project first, then save it as a reusable Project Template — Plutio's project creation flow offers "Start from Template" alongside "New Project," and a finished project can be saved as a template for reuse. Build it once, apply it going forward whenever a Sales Pipeline card is won, matched by the card's **Project Type** field.
+**Built and live.** All 4 of these exist as SuiteDash Project Templates (Projects → Templates), each holding its full Task Group / task list below. Use "Start from Template" when creating a new real Project, matched by the card's **Project Type** field.
 
 Four project types only: **Commercial**, **Brand Story**, **Conference**, and **Podcast**. Commercial, Brand Story, and Conference share the same 7-phase Base Template shape. Podcast is structured differently — an ongoing/episodic show, not a single shoot-to-delivery arc — see its own section.
 
@@ -19,11 +19,15 @@ Every one of these four project types can involve video, photography, or both. S
 - Post-Production group: add "Photo culling/selects complete," "Photo editing/retouching complete," and "Photo gallery prepared"
 - Final Delivery group: add "Photo gallery delivered via Client Portal **(Client-Visible)**"
 
-## Client visibility: Private by exception, not the other way around
+## Client visibility: no Private flag — use Assigned To
 
-Confirmed live: every task has a visibility toggle, and tasks are **visible to the client by default** — marking one **Private** is what hides it. This is the opposite of a typical "opt in to show" model, so don't skip this step.
+**Correction from earlier (Plutio-era) planning:** SuiteDash tasks have no "Private"/visibility toggle at all — confirmed by inspecting the Edit Task form field-by-field (Title, Est. Time, Description, Relative Due Date, Assigned To, Priority, Type, Status, Phase, Followers — nothing else). The opt-in-to-show vs. opt-out-to-hide question doesn't apply here; a different mechanism entirely controls client visibility.
 
-**Mark every task in every template Private**, except the handful flagged **(Client-Visible)** below — those should be left alone (not private) so the client actually sees them. Everything else — equipment checks, internal QC, crew assignments, invoicing checkboxes, the post-mortem, all of it — gets marked Private. It's easy to forget one, so go through each Task Group deliberately rather than assuming the default is safe.
+**Confirmed live:** the **Assigned To** field on every task includes **Client** as a selectable option, alongside the internal roles (Project Leader, Coordinator, Salesperson) and named staff. Setting a task's Assigned To to **Client** is what surfaces it in the client's portal (the "Client Tasks" dashboard widget). When Assigned To is set to Client, a second toggle appears — **"Request Client Approval?"** — purpose-built for sign-off/approval-style tasks.
+
+**What this means for the tasks flagged (Client-Visible) below:** each one needs **Assigned To** changed from the template default (Project Leader) to **Client**. For the sign-off/approval tasks specifically (e.g. "Client sign-off received," "Client approval received"), also enable **Request Client Approval?**.
+
+**Known gap — not yet done:** all 13 (Client-Visible)-flagged tasks across the 4 templates are currently still Assigned To **Project Leader** (the template default) — the naming suffix is a human-readable label only right now, with no functional effect, since the templates were originally built around the (incorrect, Plutio-era) Private-flag assumption above. Fixing this requires opening each flagged task's Edit panel and changing Assigned To → Client (+ Request Client Approval where noted). This was attempted via browser automation and blocked: the quick-edit panel reachable from the task list's ⋮ menu has no working Save control (no visible Save button, no auto-save on blur/close, no debounced autosave — confirmed via direct DOM inspection and multiple interaction attempts). A human doing this by hand in the browser may simply succeed where automation couldn't; otherwise this needs another look in a future session.
 
 ---
 
