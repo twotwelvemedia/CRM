@@ -16,18 +16,28 @@ Every client gets a private, branded page (your logo, colors, and domain if whit
 
 ## File organization
 
-Every Project has a main Files folder. Organize it with subfolders so both you and the client can find things:
+**Correction from earlier planning:** a Project's Files aren't one flat folder — SuiteDash splits every Project's file area into two native root folders with built-in, system-enforced client visibility, not a convention you have to maintain by hand:
+
+- **Private Files** — "Client cannot see Project Files in this folder." Internal-only.
+- **Public Files** — "Files visible to the Client" / "Files uploaded by the Client." This is also where the client's own uploads land.
+
+**Built and live.** A reusable **Folder Generator** (Files → Folder Generators → "Standard Project File Structure," Generator Type = Project) pre-builds the subfolder structure inside each root, confirmed via fresh reload:
 
 ```
-[Client Name] - [Project Name]/
+Private Files/
   01-Contracts/
   02-Brief-and-References/
   03-Raw-Footage-and-Photo-Links/
-  04-Deliverables/
   05-Invoices/
+Public Files/
+  04-Deliverables/
 ```
 
-Client uploads (brand assets, signed documents, reference material) land in this same shared folder — you'll see them alongside your own files, not in a separate inbox.
+`04-Deliverables` lives under Public Files specifically because that's the client-downloadable tier — final files land where the client can actually get to them; everything else (contracts, briefs, raw footage, invoices) stays internal.
+
+Apply this Folder Generator to a Project's Files area to get the structure above instead of building folders by hand each time. **Not yet wired to Automation #1** (docs/09) — attaching an "Apply Folder Generator" action to the Project-creation trigger so every new Project gets this structure automatically is a natural next step, not yet attempted.
+
+Client uploads (brand assets, signed documents, reference material) land in the Public Files folder — you'll see them alongside your own files there, not in a separate inbox.
 
 ## Client-facing FAQs (Knowledge Base)
 
