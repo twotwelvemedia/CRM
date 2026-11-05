@@ -1,4 +1,8 @@
-# Fallback: Make.com instead of Zapier (New Inquiry automation)
+# Fallback: Make.com instead of Zapier (New Inquiry automation) — OBSOLETE
+
+**No longer applicable.** Automation #2 (New Inquiry) now runs as a native SuiteDash Kickoff Form with its own built-in CRM-creation and email-notification automation — see docs/06 (Form 1) and docs/09. There is no Zapier webhook, no Plutio "Create Person" step, and nothing to fall back to Make.com from. Kept only for historical reference from the Plutio-era build.
+
+---
 
 Use this only if Zapier support can't resolve the intermittent "required field missing" error on the Plutio "Create Person" step (see docs/09, Automation #2). Make.com (make.com) has its own Plutio integration and tends to handle incoming webhook data more explicitly, which may avoid the bug entirely. Same logical flow, different platform — no changes needed to the form's fields.
 

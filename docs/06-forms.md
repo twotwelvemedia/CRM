@@ -4,36 +4,49 @@ Build these under Plutio's Forms builder (supports conditional logic, file uploa
 
 ## Form 1 — New Inquiry (embedded on your website / linked from ads)
 
-**Built as plain custom HTML, not Plutio's Forms builder and not a third-party form SaaS.** Plutio's own hosted form embeds as a slow-loading, hard-to-style iframe on an external website (confirmed first-hand). Every dedicated form tool we checked as an alternative (Tally, Jotform, Typeform, Paperform) gates branding removal behind a paid plan — not acceptable for a public-facing contact form. A plain HTML form living directly on the page has zero branding, loads instantly, and is fully stylable, at no extra cost.
+**Built natively in SuiteDash as a Kickoff Form — no Zapier, no third-party form tool, no custom HTML.** SuiteDash's Kickoff Form type is purpose-built for exactly this case: it's designed to onboard Unknown Targets (people with no existing CRM record), can be embedded on an external website or linked to standalone, and lets you configure the CRM/email automation that fires on submission directly in the form builder. This replaced the original Plutio-era plan (custom HTML + Zapier webhook), which existed only to work around Plutio's poor hosted-form embedding — SuiteDash doesn't have that problem.
 
-Ready-to-use file: `templates/forms/new-inquiry-embed.html` — paste its contents into a Code Embed / HTML Embed block in Showit. It includes the fields below, the conditional "Referred By" field, and a submit handler that posts to a Zapier webhook.
+Built and live: **"New Inquiry"** (Forms → New Inquiry, `https://app.suitedash.com/frm/u/24Xey5xetrdCwVGur`).
 
-| Field | Type | Required |
+| Field | Type | Maps to |
 |---|---|---|
-| First Name | Text | Yes |
-| Last Name | Text | Yes |
-| Email | Email | Yes |
-| Phone | Phone | No |
-| Company/Brand Name | Text | No |
-| Project Type | Dropdown: Commercial, Brand Story, Conference, Podcast | Yes |
-| Deliverable Medium | Dropdown: Video Only, Photo Only, Video + Photo | Yes |
-| Estimated Budget | Dropdown: <$2.5k, $2.5k–$5k, $5k–$10k, $10k–$25k, $25k+ | Yes |
-| Desired Timeline/Deadline | Date | No |
-| Project Description | Long Text | Yes |
-| How did you hear about us | Dropdown: Referral, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | No |
-| Referred By | Text (conditional — show if "Referral" selected) | No |
+| Primary Email | Email | CRM Contact: Primary Email |
+| First Name | Text | CRM Contact: First Name |
+| Last Name | Text | CRM Contact: Last Name |
+| Company Name | Text (open-ended, creates Company if no match) | CRM Company: Company Name |
+| Primary Phone | Text | CRM Contact: Primary Phone |
+| Project Type | Dropdown: Commercial, Brand Story, Conference, Podcast | Project Custom Field: Project Type |
+| Deliverable Medium | Dropdown: Video Only, Photo Only, Video + Photo | Project Custom Field: Deliverable Medium |
+| Estimated Budget Range | Dropdown: <$2.5k, $2.5k–$5k, $5k–$10k, $10k–$25k, $25k+ | Project Custom Field: Estimated Budget Range |
+| Target Shoot Date(s) | Date | Project Custom Field: Target Shoot Date(s) — stands in for "Desired Timeline/Deadline" |
+| Lead Source | Dropdown: Referral, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | Project Custom Field: Lead Source — stands in for "How did you hear about us" |
+| Message | Long Text, writes a CRM Note | Project Description / general inquiry notes |
 
-### Connecting it to Plutio
+Not built: a conditional "Referred By" field (would need a Choice Block for the conditional logic) — minor gap, skip unless it matters to you; Sales can always just ask who referred them.
 
-1. In Zapier, create a Zap: Trigger = **Webhooks by Zapier → Catch Hook**. Zapier gives you a webhook URL.
-2. Paste that URL into `templates/forms/new-inquiry-embed.html` where it says `PASTE_YOUR_ZAPIER_WEBHOOK_URL_HERE`.
-3. Add Zapier steps per Automation #2 (docs/09): a Filter to catch duplicate emails, then Plutio "Create Person," then Plutio "Create Task" on the Sales Pipeline board's "New Lead" column.
-4. In Showit, add a Code Embed block and paste in the finished HTML file's contents.
-5. Adjust the `--ntw-accent` color variable near the top of the file's `<style>` block to match your brand.
+### How it's wired (already done — nothing to connect)
 
-**If you'd rather not maintain a code snippet**, Tally (tally.so) is the fallback — same Zapier wiring, instant trigger, built-in transparent-background toggle, but the free tier shows a small "Tally" badge unless you upgrade to Tally Pro.
+- **Form Type:** Kickoff, title "New Inquiry"
+- **Unknown Target Role:** Lead (so a first-time visitor becomes a CRM Lead, not a Client — they can't log into the Portal at this stage, which is correct; see docs/02)
+- **Coordinator:** Marcus Williams (required by SuiteDash once Role = Lead; reassign per-lead once Sales claims it)
+- **Email Notification:** fires on every submission to Marcus Williams (`info@two-twelvemedia.com`), subject "New Website Inquiry: {{clientFullName}}", body dumps the full submission via SuiteDash's `{{allSubmittedFormData}}` merge token
+- **Portal invitation:** not sent (Leads can't be invited anyway — see the Role note above)
 
-On submit → Automation #2 (docs/09): creates a Contact in Plutio, then emails Sales/Account Manager (info@two-twelvemedia.com) with the full submission. Sales adds the Sales Pipeline card to "New Lead" by hand — Zapier's Plutio integration can't create a task on a standalone Task Board directly.
+### Embedding it on your website
+
+Use the embed script, not an iframe — it's SuiteDash's own JS embed, loads fast, and inherits the form's styling:
+
+```html
+<script src="https://app.suitedash.com/frm/24Xey5xetrdCwVGur.js"></script>
+```
+
+Paste that into a Code Embed block in Showit wherever the inquiry form should appear. The direct standalone link (for a "Get a Quote" button linked from ads, etc.) is `https://app.suitedash.com/frm/24Xey5xetrdCwVGur`.
+
+Default styling (white background, dark gray text/buttons) is functional but generic — restyle it to match your brand under the form's Link/Embed panel → Styling Options (title/label/background/button colors) whenever you get to it; it's cosmetic, not blocking.
+
+`templates/forms/new-inquiry-embed.html` is no longer the primary path — it's kept only as a reference/fallback if you ever need a fully custom embed outside SuiteDash.
+
+On submit → creates/updates the CRM Contact (and Company, if given) as a Lead, writes the submitted project details to the new Project custom fields, logs the message as a CRM Note, and emails Marcus Williams the full submission. Sales reviews the email, then manually creates the Sales Pipeline card in "New Lead" (docs/02) and claims the lead — same manual handoff as before, just without Zapier in the middle.
 
 ## Form 2 — Creative Brief / Discovery Intake (send after the discovery call)
 
