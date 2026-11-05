@@ -35,7 +35,7 @@ Public Files/
 
 `04-Deliverables` lives under Public Files specifically because that's the client-downloadable tier — final files land where the client can actually get to them; everything else (contracts, briefs, raw footage, invoices) stays internal.
 
-Apply this Folder Generator to a Project's Files area to get the structure above instead of building folders by hand each time. **Not yet wired to Automation #1** (docs/09) — attaching an "Apply Folder Generator" action to the Project-creation trigger so every new Project gets this structure automatically is a natural next step, not yet attempted.
+**Built and live — wired to Automation #1** (docs/09): every Project Template's first kickoff task carries an **Apply Folder Generator → "Standard Project File Structure"** automation, confirmed via fresh reload on all 4 templates. So every new Project gets this folder structure automatically, the moment that first task is marked complete — no manual folder-building required.
 
 Client uploads (brand assets, signed documents, reference material) land in the Public Files folder — you'll see them alongside your own files there, not in a separate inbox.
 
