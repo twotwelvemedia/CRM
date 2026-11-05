@@ -24,7 +24,7 @@ Progress is built from **Task Groups** inside each Project's Tasks area (docs/05
 
 **Correction from earlier (Plutio-era) planning:** there is no per-task "Private" flag in SuiteDash — see docs/05's "Client visibility" section for the full correction. The actual mechanism: a task's **Assigned To** field must be set to **Client** for it to surface in the client's portal (the "Client Tasks" dashboard widget); everything else (Assigned To any internal role or named staff) stays internal-only. A second toggle, **Request Client Approval?**, appears once Assigned To = Client — use it on sign-off/approval tasks specifically.
 
-The **(Client-Visible)** flags in docs/05 mark which tasks need Assigned To switched to Client when a real Project is created from a template. **As of this writing, that switch hasn't been made yet in the 4 templates** (see docs/05's "Known gap" note) — it needs to be done by hand in the SuiteDash UI, either once in each template or per-project after Start from Template.
+The **(Client-Visible)** flags in docs/05 mark the tasks with Assigned To set to Client — **built and live across all 4 templates**, confirmed via fresh reload (docs/05).
 
 **Podcast is structured differently**: instead of 7 fixed Task Groups for the whole engagement, each **episode gets its own Task Group** (e.g. "Episode 12"), created fresh every cycle, so the current episode's status stays visually separate from past ones. See the Podcast section of `docs/05-project-templates.md`.
 
@@ -44,5 +44,5 @@ The native Client Tasks widget works, but it's a raw task list — not the clear
 
 - [x] White-labeling configured (docs/01, Phase 0) so the portal carries your branding
 - [x] Task Groups built into all 4 Project Templates, matching the phases in docs/05
-- [ ] **Not yet done**: switch Assigned To → Client (+ Request Client Approval where noted) on the 13 (Client-Visible)-flagged tasks across the 4 templates — see docs/05's "Known gap" note for exactly which tasks and why this is still outstanding
-- [ ] Test once real projects exist: create a test Project from a template, invite a test Client contact, confirm only the Assigned-to-Client tasks show in their portal's Client Tasks widget
+- [x] Assigned To → Client (+ Request Client Approval on the 4 sign-off tasks) set on all 13 (Client-Visible)-flagged tasks across the 4 templates, confirmed via fresh reload
+- [ ] Test once real projects exist: create a test Project from a template, invite a test Client contact, confirm those tasks show in their portal's Client Tasks widget

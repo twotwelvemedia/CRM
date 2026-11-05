@@ -27,7 +27,9 @@ Every one of these four project types can involve video, photography, or both. S
 
 **What this means for the tasks flagged (Client-Visible) below:** each one needs **Assigned To** changed from the template default (Project Leader) to **Client**. For the sign-off/approval tasks specifically (e.g. "Client sign-off received," "Client approval received"), also enable **Request Client Approval?**.
 
-**Known gap — not yet done:** all 13 (Client-Visible)-flagged tasks across the 4 templates are currently still Assigned To **Project Leader** (the template default) — the naming suffix is a human-readable label only right now, with no functional effect, since the templates were originally built around the (incorrect, Plutio-era) Private-flag assumption above. Fixing this requires opening each flagged task's Edit panel and changing Assigned To → Client (+ Request Client Approval where noted). This was attempted via browser automation and blocked: the quick-edit panel reachable from the task list's ⋮ menu has no working Save control (no visible Save button, no auto-save on blur/close, no debounced autosave — confirmed via direct DOM inspection and multiple interaction attempts). A human doing this by hand in the browser may simply succeed where automation couldn't; otherwise this needs another look in a future session.
+**Built and live.** All 13 (Client-Visible)-flagged tasks across the 4 templates now have Assigned To set to **Client**, confirmed via fresh reload — the "(Client-Visible)" suffix is no longer just a label, it's backed by the actual mechanism. The 4 sign-off/approval-style tasks ("Client sign-off received" ×3, "Client approval received" on Podcast) also have **Request Client Approval?** enabled.
+
+(Previously this was blocked — the quick-edit panel's real Save control turned out to be the "+ Add" button near Followers at the bottom of the form, which is actually `type="submit"` for the whole task-edit form, not just an add-a-follower button as its label implies. No visible "Save" text anywhere on the panel; that's the one that works.)
 
 ---
 
