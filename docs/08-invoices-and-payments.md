@@ -27,19 +27,16 @@ Exact wording in `templates/invoices/invoice-line-items.md`. Build each as a sav
 5. Podcast Episode Invoice (per-episode billing)
 6. Podcast Monthly Subscription (recurring)
 
-## Setting up the Podcast Subscription (Financials → Subscriptions)
+## Setting up the Podcast Subscription
 
-Plutio calls recurring billing a **Subscription**, with two billing types:
+**Correction from earlier (Plutio-era) planning:** SuiteDash has no standalone "Financials → Subscriptions → Create subscription" flow with its own reusable template — confirmed live, the Subscriptions list (Invoices → Subscriptions) has no "+ Add" button of its own. A Subscription is created per-client, attached from an invoice's own Subscription Charges line item, not as a shared object you pre-configure once. In practice this means each Podcast retainer client's recurring billing gets set up individually, the first time that client needs it, rather than ahead of time.
 
-- **Manual billing** — Plutio auto-sends the invoice on schedule; the client pays it on receipt.
-- **Auto billing** — Plutio auto-charges the client's saved payment method on the billing date. Only Stripe and Square support auto-charge; PayPal and bank transfer don't, so those clients must be on manual billing.
-
-Setup steps:
-1. Financials → Subscriptions → Create subscription.
-2. Select the subscriber (the Podcast client).
-3. Attach it to the client's Podcast Project so generated invoices link to the right show.
-4. Set the repeat interval (e.g. monthly) and start date.
-5. Choose manual or auto billing based on the client's payment method.
+What that setup looks like when a real Podcast retainer client signs (not yet done — no such client exists in the account yet):
+1. On that client's invoice, add a Subscription Charge line item (monthly amount, covering the agreed number of episodes).
+2. Attach it to the client's Podcast Project so generated invoices link to the right show.
+3. Set the repeat interval (e.g. monthly) and start date.
+4. Choose manual billing (SuiteDash sends the invoice, client pays on receipt) or auto billing (charges a saved payment method) based on the client's payment method and gateway support.
+5. On that Subscription's own automations ("Invoice is Paid"), wire Automation #8 (docs/09) — add the "Podcast — New Episode" Task Template to the Project each time it bills.
 
 ## Late payment policy
 
