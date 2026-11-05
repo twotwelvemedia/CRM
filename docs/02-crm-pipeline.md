@@ -1,53 +1,39 @@
-# Sales Pipeline (Task Board)
+# Sales Pipeline
 
-Plutio doesn't have a dedicated "Deals" object — the sales pipeline is built using a **Task Board** in Kanban view, with each card representing one prospective deal. This is a standard, fully-supported Plutio pattern (their own help docs cover it: "Using task boards as sales pipelines").
+**Correction from earlier (Plutio-era) planning:** Plutio has no dedicated "Deals" object, so the original plan built the sales pipeline as a Task Board workaround (Kanban columns standing in for pipeline stages). **SuiteDash has a native Deals module** — a proper CRM pipeline object with its own Stages, Won/Lost status, probability weighting, and stage-level automations. Use that instead; there's no Task Board workaround needed.
 
-Keep this board separate from production work — sales and production are two different systems. A card here becomes a Project (docs/05) once it's won; don't run production work through this board.
+## Built and live: "Video Production Sales" pipeline
 
-## Build: "Video Production Sales" Task Board
+Deals → Pipelines → **Video Production Sales** (renamed from SuiteDash's out-of-box "Default Pipeline," which shipped with generic stage names like "Qualified"/"Demo Scheduled" — those are gone now).
 
-Plutio's left sidebar has both a **Tasks** item and a **Projects** item — these are different things. **Tasks** is where standalone Kanban boards live (boards not tied to one client's work), which is where this pipeline board belongs. **Projects** is for the actual client work built in docs/05 — don't confuse the two.
+8 stages, confirmed live via fresh reload:
 
-1. Click **Tasks** in the sidebar, then create a new board (look for a "+ New Board" or similar create action).
-2. Name it **Video Production Sales**.
-3. Use **"Create Task Group"** to add one group per stage below — a Task Group is Plutio's name for a Kanban column. "Create Task" is a different button, for individual cards that go inside a group later; don't use it yet.
-4. Switch to Kanban/Board view if there's a view switcher near the top — that's what displays Task Groups as side-by-side columns.
+| # | Stage | Probability | Meaning |
+|---|---|---|---|
+| 1 | New Lead | 5% | Inbound inquiry, not yet contacted |
+| 2 | Discovery Call Scheduled | 15% | Call booked |
+| 3 | Discovery Call Completed | 30% | Needs/brief captured |
+| 4 | Proposal Sent | 50% | Proposal delivered |
+| 5 | Negotiation | 65% | Revising scope/price |
+| 6 | Contract Sent | 85% | Contract out for e-signature |
+| 7 | Won - Contract Signed | 100% | Deposit invoice sent → auto-creates Project (docs/09, Automation #1) |
+| 8 | Lost | 0% | Did not close |
 
-One Task Group per stage:
+## Won vs. Lost: two different mechanisms — use the Stage, not the status buttons
 
-| # | Stage (Task Group) | Meaning | Exit criteria |
-|---|-------|---------|----------------|
-| 1 | New Lead | Inbound inquiry, not yet contacted | First response sent within 1 business day |
-| 2 | Discovery Call Scheduled | Call booked | Call takes place |
-| 3 | Discovery Call Completed | Needs/brief captured | Creative Brief form completed (docs/06, Form 2) |
-| 4 | Proposal Sent | Proposal delivered | Client responds |
-| 5 | Negotiation | Revising scope/price | Terms agreed |
-| 6 | Contract Sent | Contract out for e-signature | Signed |
-| 7 | Won — Contract Signed | Deposit invoice sent | Deposit paid → auto-creates Project (docs/09, Automation #1) |
-| 8 | Lost | Did not close | Lost Reason field set (below) |
+This is the one easy-to-get-wrong part. Every Deal detail page has quick-action **Won**/**Lost** buttons at the top (green/red) that set the Deal's status directly — confirmed live, clicking them does **not** move the Deal through the Stage pipeline at all, and does **not** trigger any stage-based automation. SuiteDash's own automation system only fires on **Stage changes** ("Trigger Automations when a Deal is moved into/out of this Stage") — there's no separate "Deal marked Lost" trigger type, despite the module's own onboarding copy implying one exists.
 
-Keep **Lost** as a terminal Task Group rather than deleting cards — they're your remarketing list (Automation #7, docs/09).
+**Practical rule: drag the card into the "Lost" stage instead of clicking the red Lost button.** That's what actually fires Automation #7 (the 90-day follow-up — see below). The quick-action buttons are fine for marking Won (reaching the "Won - Contract Signed" stage already represents Won), but don't use the red Lost button if you want the automation to fire.
 
-## Card conventions
+## Automation #7: 90-day follow-up on Lost
 
-- **Card title**: Client/Company name + short project descriptor (e.g. "Acme Corp — Brand Story")
-- **Card description**: notes, next steps, context on the opportunity
-- **Assignee**: whoever owns the deal (Sales/Account Manager)
+**Built and live.** On the "Lost" stage's "Into This Stage" automations (Pipeline → Video Production Sales → Stage View → the gear icon on the Lost column → Configure Automations):
 
-## Card-level custom fields
+- Action: **Apply Follow-Up Generator(s)** → "Lost Deal — 90-Day Follow-Up"
 
-Add these to the Task Board under Settings → Custom Fields (scope: this board) so every card carries them — full spec in `docs/03-custom-fields.md`:
+That Follow-Up Generator (Office → Follow-Ups → Generators) creates a single Follow-Up titled "90-Day Follow-Up: Re-engage Lost Lead," scheduled 90 days out, assigned to the Deal's Primary Salesperson, Private visibility, category "Follow Up." Confirmed via fresh reload.
 
-- Project Type
-- Deliverable Medium
-- Estimated Budget Range
-- Target Shoot Date(s)
-- Lead Source
-- Lost Reason
-
-Fill these in before moving a card past Stage 3.
-
-## Lost Reasons (set the Lost Reason field when a card is marked Lost)
+**Lost Reason** isn't a field on the Deal itself — SuiteDash doesn't support custom fields scoped directly to Deals (confirmed: the Custom Fields "Usage" dropdown has no "Deals" option, only CRM > Target/Contacts/Company, Projects, Organization, Staff, Work Requests, Support). The closest working equivalent is a **Deal Lost Reason** custom field scoped to CRM > Target (i.e., it lives on the Contact record) — built and live, dropdown with the 5 options below. Not automatable (nobody can know *why* a deal was lost except the salesperson), so the Sales rep fills it in by hand on the Contact when they mark a deal Lost:
 
 - Budget Mismatch
 - Chose Competitor
@@ -55,7 +41,20 @@ Fill these in before moving a card past Stage 3.
 - Went Silent (no response after 3 follow-ups)
 - Scope Not a Fit
 
+This is a contact-level field, not a per-deal one — fine in practice since a given contact rarely has multiple simultaneous Lost deals needing different reasons recorded at once.
+
+## Known leftover from earlier (Plutio-pattern) exploration — not cleaned up
+
+Custom Fields admin currently also has an older **"Lost Reason"** and **"Pipeline Stage"** field, both scoped to **Projects** (not Deals/Contacts) — these were built earlier in this project's setup, before the native Deals module was discovered/used, as part of an abandoned attempt to model the pipeline on Project-level fields. They're not wired to anything pipeline-related now and are safe to ignore; cleaning them up is a separate, optional task not done here since they weren't confirmed unused elsewhere.
+
+## Card conventions
+
+- **Deal title**: Client/Company name + short project descriptor (e.g. "Acme Corp — Brand Story")
+- **Target**: the CRM Contact this Deal is for
+- **Category**: use the Project Type (Commercial/Brand Story/Conference/Podcast) — customize the Deal Category options via the "You can customize the Deal Categories..." link on the Add Deal form if the defaults (Website Design, Photo Shoot, etc.) haven't been swapped out yet
+- **Expected Value**: the deal's total project fee
+
 ## Notes
 
-- Podcast clients are ongoing/recurring by nature — still run the initial sale through this board once. Episode billing and renewals are handled inside the Podcast Project itself (docs/05, docs/08), not as repeat cards.
-- Plutio doesn't support bulk CSV import for Task Board cards the way it does for Contacts/Companies — add your existing in-flight deals to this board by hand (docs/01, Phase 2).
+- Podcast clients are ongoing/recurring by nature — still run the initial sale through this same pipeline once. Episode billing and renewals are handled inside the Podcast Project itself (docs/05, docs/08), not as repeat Deals.
+- No bulk import tested for Deals; add existing in-flight opportunities by hand (docs/01, Phase 2) if migrating from a prior system.

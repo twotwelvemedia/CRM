@@ -25,16 +25,20 @@ The same list, in flat CSV form for quick reference, is in `imports/custom_field
 
 **Client Type drives payment terms** (docs/08) — Corporate clients get a single Net 30 invoice, everyone else gets the standard 50/50 deposit split. Set this field before sending a proposal, not after.
 
-## Sales Pipeline card fields (scope: the "Video Production Sales" Task Board — docs/02)
+## Sales Pipeline card fields — correction from earlier (Plutio-era) planning
 
-| Field Name | Type | Options | Required |
-|---|---|---|---|
-| Project Type | Dropdown | Commercial, Brand Story, Conference, Podcast | Yes |
-| Deliverable Medium | Dropdown | Video Only, Photo Only, Video + Photo | Yes |
-| Estimated Budget Range | Dropdown | <$2.5k, $2.5k–$5k, $5k–$10k, $10k–$25k, $25k+ | Yes |
-| Target Shoot Date(s) | Date | — | No |
-| Lead Source | Dropdown | Referral, Website, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | No |
-| Lost Reason | Dropdown | Budget Mismatch, Chose Competitor, Timing/Not Ready, Went Silent, Scope Not a Fit | Only when Stage = Lost |
+**SuiteDash doesn't support custom fields scoped directly to Deals** — confirmed live, the Custom Fields "Usage" dropdown offers CRM > Target/Contacts/Company, Projects, Organization, Staff, Work Requests, Support, but no "Deals" option. The fields below were originally built scoped to **Projects** (an earlier, now-superseded attempt at modeling the pipeline — see docs/02), which doesn't make sense for pre-close data since a Project doesn't exist until a Deal is Won. They're effectively unused leftovers now, not cleaned up (see docs/02's "Known leftover" note):
+
+- Pipeline Stage (Projects-scoped, orphaned)
+- Lost Reason (Projects-scoped, orphaned — **superseded by the field below**)
+
+**What's actually built and live for the pipeline now (docs/02):**
+
+| Field Name | Scope | Type | Options | Required |
+|---|---|---|---|---|
+| Deal Lost Reason | CRM > Target (i.e. the Contact) | Dropdown | Budget Mismatch, Chose Competitor, Timing / Not Ready, Went Silent (no response after 3 follow-ups), Scope Not a Fit | No — filled in by hand when a Deal is marked Lost |
+
+Project Type, Deliverable Medium, Estimated Budget Range, Target Shoot Date(s), and Lead Source are **not** duplicated at the Deal/pipeline level — they're captured once, directly on the Project, via the New Inquiry Kickoff Form (docs/06, docs/09 Automation #2), which writes straight to the Project-scoped fields below on submission. There's no separate pipeline-card copy of these fields to keep in sync.
 
 ## Project fields (scope: Projects)
 
