@@ -1,0 +1,237 @@
+<!--
+  Generic Production Process Explainer — static, same for every client.
+
+  WHAT THIS IS
+  Embedded directly on the Multi-Purpose Client Dashboard (see docs/12)
+  as an uploaded image, showing all 7 Base Template phases as a numbered
+  journey — nothing marked "current," since the Dashboard is one shared
+  page every client sees. For a client-specific "you are here" tracker,
+  see project-status-tracker.html in this same folder instead.
+
+  WHY AN IMAGE, NOT LIVE HTML
+  SuiteDash's Text Block editor strips <style> and <script> tags from
+  pasted HTML (inline style="..." attributes survive fine). An <iframe>
+  survives as a native "embed" block, but there's no iframe-friendly
+  place to host this page from — see docs/12 for the full explanation.
+  So this page exists only to be rendered to a static image and
+  uploaded through the Text Block's own image uploader.
+
+  HOW TO UPDATE THE LIVE EMBED AFTER EDITING THIS FILE
+  1. Render this file to a PNG — e.g. a headless-browser screenshot of
+     the .op-wrap element, ~760px wide, 2x device scale for crispness.
+  2. SuiteDash → Office → Content → Dashboards → Multi-Purpose Client
+     Dashboard → edit the existing explainer Text Block → Upload →
+     replace with the new image.
+  3. Save the Text Block, then separately click "Save & Keep Editing"
+     on the dashboard itself — these are two different saves.
+  4. Verify via a fresh page reload (not just the in-session preview).
+
+  Colors/fonts match project-status-tracker.html (and two-twelvemedia.com):
+  near-black + off-white, muted gold-tan accent, Bebas Neue / Syne / Raleway.
+-->
+<title>Our Production Process</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: a single-column numbered journey, same visual language as the
+     per-client status tracker, but static -- every phase shown, nothing
+     marked "current," since this page is the same for every client. */
+  :root {
+    --op-accent: #C8B08D;
+    --op-bg: #0D0D0D;
+    --op-card-bg: #19191A;
+    --op-text: #F4F4F4;
+    --op-muted: #9A9A9A;
+    --op-border: rgba(244, 244, 244, 0.14);
+    --op-font-display: "Bebas Neue", "Helvetica Neue", Arial, sans-serif;
+    --op-font-heading: "Syne", "Helvetica Neue", Arial, sans-serif;
+    --op-font-body: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--op-bg);
+    color: var(--op-text);
+    font-family: var(--op-font-body);
+  }
+  .op-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding-block: 36px 48px;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  .op-brand {
+    font-family: var(--op-font-display);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--op-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .op-header h1 {
+    font-family: var(--op-font-heading);
+    font-weight: 700;
+    font-size: clamp(24px, 5vw, 30px);
+    letter-spacing: 0.01em;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .op-header p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--op-muted);
+    margin: 0 0 32px;
+    max-width: 56ch;
+  }
+  .op-stages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .op-stage {
+    display: flex;
+    gap: 18px;
+  }
+  .op-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 34px;
+    flex: 0 0 34px;
+  }
+  .op-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 34px;
+    font-family: var(--op-font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid var(--op-accent);
+    color: var(--op-accent);
+    background: var(--op-bg);
+  }
+  .op-line {
+    width: 1px;
+    flex: 1 1 auto;
+    background: var(--op-border);
+    margin: 4px 0;
+    min-height: 26px;
+  }
+  .op-stage:last-child .op-line { display: none; }
+  .op-content {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-bottom: 30px;
+  }
+  .op-stage-name {
+    font-family: var(--op-font-display);
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--op-text);
+    margin-bottom: 5px;
+  }
+  .op-stage-blurb {
+    font-size: 14px;
+    color: var(--op-muted);
+    line-height: 1.55;
+  }
+  .op-note {
+    background: var(--op-card-bg);
+    border: 1px solid var(--op-border);
+    border-radius: 2px;
+    padding: 16px 18px;
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--op-muted);
+    line-height: 1.6;
+  }
+  .op-note strong { color: var(--op-text); font-weight: 600; }
+  .op-footer {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--op-border);
+    font-size: 13px;
+    color: var(--op-muted);
+    line-height: 1.6;
+  }
+</style>
+
+<div class="op-wrap">
+  <div class="op-brand">Two Twelve Media</div>
+
+  <div class="op-header">
+    <h1>How a project moves through our studio</h1>
+    <p>Every Commercial, Brand Story, and Conference project follows the same seven phases from kickoff to delivery. Here's what happens at each one.</p>
+  </div>
+
+  <ul class="op-stages">
+    <li class="op-stage">
+      <div class="op-marker"><div class="op-num">1</div><div class="op-line"></div></div>
+      <div class="op-content">
+        <div class="op-stage-name">Onboarding &amp; Kickoff</div>
+        <div class="op-stage-blurb">We confirm your creative brief, your deposit, and get your kickoff call on the calendar.</div>
+      </div>
+    </li>
+    <li class="op-stage">
+      <div class="op-marker"><div class="op-num">2</div><div class="op-line"></div></div>
+      <div class="op-content">
+        <div class="op-stage-name">Pre-Production</div>
+        <div class="op-stage-blurb">Script, shot list, locations, and crew get locked in ahead of your shoot day.</div>
+      </div>
+    </li>
+    <li class="op-stage">
+      <div class="op-marker"><div class="op-num">3</div><div class="op-line"></div></div>
+      <div class="op-content">
+        <div class="op-stage-name">Production</div>
+        <div class="op-stage-blurb">Filming and/or photography happens here — this is shoot day (or days).</div>
+      </div>
+    </li>
+    <li class="op-stage">
+      <div class="op-marker"><div class="op-num">4</div><div class="op-line"></div></div>
+      <div class="op-content">
+        <div class="op-stage-name">Post-Production</div>
+        <div class="op-stage-blurb">Editing, color, sound, and graphics come together behind the scenes.</div>
+      </div>
+    </li>
+    <li class="op-stage">
+      <div class="op-marker"><div class="op-num">5</div><div class="op-line"></div></div>
+      <div class="op-content">
+        <div class="op-stage-name">Review &amp; Revisions</div>
+        <div class="op-stage-blurb">Your cut is ready — we send it over for feedback, and apply your revisions.</div>
+      </div>
+    </li>
+    <li class="op-stage">
+      <div class="op-marker"><div class="op-num">6</div><div class="op-line"></div></div>
+      <div class="op-content">
+        <div class="op-stage-name">Final Delivery</div>
+        <div class="op-stage-blurb">Final files are delivered to you in every format your package includes.</div>
+      </div>
+    </li>
+    <li class="op-stage">
+      <div class="op-marker"><div class="op-num">7</div></div>
+      <div class="op-content">
+        <div class="op-stage-name">Complete</div>
+        <div class="op-stage-blurb">Project wrapped. We'd love to hear what you thought.</div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="op-note">
+    <strong>Podcast clients:</strong> your show runs on its own episodic cycle instead — topic &amp; scheduling, recording day, editing, your review, then publishing — repeating for every episode. Ask your producer if you'd like the details.
+  </div>
+
+  <div class="op-footer">
+    Want to know where your specific project stands right now? Message us anytime through your portal, or reply to any project email — we're happy to fill you in.
+  </div>
+</div>
