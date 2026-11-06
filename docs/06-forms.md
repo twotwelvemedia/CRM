@@ -6,7 +6,7 @@ Build these under Plutio's Forms builder (supports conditional logic, file uploa
 
 **Built natively in SuiteDash as a Kickoff Form — no Zapier, no third-party form tool, no custom HTML.** SuiteDash's Kickoff Form type is purpose-built for exactly this case: it's designed to onboard Unknown Targets (people with no existing CRM record), can be embedded on an external website or linked to standalone, and lets you configure the CRM/email automation that fires on submission directly in the form builder. This replaced the original Plutio-era plan (custom HTML + Zapier webhook), which existed only to work around Plutio's poor hosted-form embedding — SuiteDash doesn't have that problem.
 
-Built and live: **"New Inquiry"** (Forms → New Inquiry, `https://app.suitedash.com/frm/u/24Xey5xetrdCwVGur`).
+Built and live: **"New Inquiry"** (Forms → New Inquiry). Two different URLs, confirmed by testing both anonymously: `https://app.suitedash.com/frm/u/24Xey5xetrdCwVGur` (with `/u/`) is the internal builder/edit link — it redirects an anonymous visitor to the staff login page, so don't share it. The real public submission form is `https://app.suitedash.com/frm/24Xey5xetrdCwVGur` (no `/u/`) — see the embed section below.
 
 | Field | Type | Maps to |
 |---|---|---|
@@ -20,7 +20,7 @@ Built and live: **"New Inquiry"** (Forms → New Inquiry, `https://app.suitedash
 | Estimated Budget Range | Dropdown: <$2.5k, $2.5k–$5k, $5k–$10k, $10k–$25k, $25k+ | Project Custom Field: Estimated Budget Range |
 | Target Shoot Date(s) | Date | Project Custom Field: Target Shoot Date(s) — stands in for "Desired Timeline/Deadline" |
 | Lead Source | Dropdown: Referral, Instagram, Google Search, Google Ads, Past Client, Networking Event, Cold Outreach, Other | Project Custom Field: Lead Source — stands in for "How did you hear about us" |
-| Message | Long Text, writes a CRM Note | Project Description / general inquiry notes |
+| Message | Long Text, writes a Target Custom Field | Project Description / general inquiry notes |
 
 Not built: a conditional "Referred By" field (would need a Choice Block for the conditional logic) — minor gap, skip unless it matters to you; Sales can always just ask who referred them.
 
@@ -46,7 +46,7 @@ Default styling (white background, dark gray text/buttons) is functional but gen
 
 `templates/forms/new-inquiry-embed.html` is no longer the primary path — it's kept only as a reference/fallback if you ever need a fully custom embed outside SuiteDash.
 
-On submit → creates/updates the CRM Contact (and Company, if given) as a Lead, writes the submitted project details to the new Project custom fields, logs the message as a CRM Note, and emails Marcus Williams the full submission. Sales reviews the email, then manually creates the Sales Pipeline card in "New Lead" (docs/02) and claims the lead — same manual handoff as before, just without Zapier in the middle.
+On submit → creates/updates the CRM Contact (and Company, if given) as a Lead, writes the submitted project details to the new Project custom fields, writes the message to a Target Custom Field on the Contact (visible on the Contact's Home panel under "Target Custom Fields" → MESSAGE — not a separate CRM Note object), and emails Marcus Williams the full submission. **Confirmed via two live test submissions as part of a full dry run**: no Project or Deal is auto-created on submit (Leads only), so Sales reviews the email, then manually creates the Sales Pipeline card in "New Lead" (docs/02) and claims the lead — same manual handoff as before, just without Zapier in the middle.
 
 ## Form 2 — Creative Brief / Discovery Intake (send after the discovery call)
 

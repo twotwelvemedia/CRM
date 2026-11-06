@@ -16,7 +16,7 @@ Deals → Pipelines → **Video Production Sales** (renamed from SuiteDash's out
 | 4 | Proposal Sent | 50% | Proposal delivered |
 | 5 | Negotiation | 65% | Revising scope/price |
 | 6 | Contract Sent | 85% | Contract out for e-signature |
-| 7 | Won - Contract Signed | 100% | Deposit invoice sent → auto-creates Project (docs/09, Automation #1) |
+| 7 | Won - Contract Signed | 100% | Deal marked Won. Project creation is a separate, manual "Start from Template" step the Producer does — see docs/09, Automation #1 detail |
 | 8 | Lost | 0% | Did not close |
 
 ## Won vs. Lost: two different mechanisms — use the Stage, not the status buttons
@@ -24,6 +24,8 @@ Deals → Pipelines → **Video Production Sales** (renamed from SuiteDash's out
 This is the one easy-to-get-wrong part. Every Deal detail page has quick-action **Won**/**Lost** buttons at the top (green/red) that set the Deal's status directly — confirmed live, clicking them does **not** move the Deal through the Stage pipeline at all, and does **not** trigger any stage-based automation. SuiteDash's own automation system only fires on **Stage changes** ("Trigger Automations when a Deal is moved into/out of this Stage") — there's no separate "Deal marked Lost" trigger type, despite the module's own onboarding copy implying one exists.
 
 **Practical rule: drag the card into the "Lost" stage instead of clicking the red Lost button.** That's what actually fires Automation #7 (the 90-day follow-up — see below). The quick-action buttons are fine for marking Won (reaching the "Won - Contract Signed" stage already represents Won), but don't use the red Lost button if you want the automation to fire.
+
+**Confirmed end-to-end via a full dry run** (test Deal, real Won button click): clicking the green Won quick-action set Status Open → Won and Probability 5% → 100%, logged in the Deal's History, while the Stage pill stayed on whatever stage it was already on — exactly as documented above. No stray automation fired. Project creation afterward was a separate, manual "Start from Template" step (docs/09).
 
 ## Automation #7: 90-day follow-up on Lost
 
@@ -51,7 +53,7 @@ Custom Fields admin currently also has an older **"Lost Reason"** and **"Pipelin
 
 - **Deal title**: Client/Company name + short project descriptor (e.g. "Acme Corp — Brand Story")
 - **Target**: the CRM Contact this Deal is for
-- **Category**: use the Project Type (Commercial/Brand Story/Conference/Podcast) — customize the Deal Category options via the "You can customize the Deal Categories..." link on the Add Deal form if the defaults (Website Design, Photo Shoot, etc.) haven't been swapped out yet
+- **Category**: use the Project Type (Commercial/Brand Story/Conference/Podcast). **Built and live** — the 4 real categories replace SuiteDash's out-of-box defaults (Website Design, Photo Shoot, Logo Design, Supplier Contract), confirmed via fresh reload. Commercial is set as the default category (a category admin requirement — SuiteDash won't let the last default category be deleted, so swap the default to one of the real categories first if you ever need to remove another one)
 - **Expected Value**: the deal's total project fee
 
 ## Notes
