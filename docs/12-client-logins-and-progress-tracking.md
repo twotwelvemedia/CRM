@@ -36,9 +36,15 @@ The **(Client-Visible)** flags in docs/05 mark the tasks with Assigned To set to
 4. The Client Tasks widget shows only tasks where Assigned To = Client on their Project(s) — see the gap note above.
 5. Can view/download files, upload files back, view and pay invoices, and message the team — all from the same portal login.
 
-## Optional: a friendlier visual tracker
+## Progress tracking: what's native vs. what's a separate file
 
-The native Client Tasks widget works, but it's a raw task list — not the clearest "where's my project" view for a client. `templates/client-portal/project-status-tracker.html` is a standalone, self-contained status page that shows the same journey (the 7 Base Template phases, or the 5-step episode flow for Podcast) as a simple step tracker with a "you are here" marker. It has no connection to SuiteDash's data — duplicate it per client/project, edit the `TRACKER_CONFIG` block at the bottom of the file to set the current stage, and either host it as an unlisted page / Showit embed or just send the client the .html file directly. See the usage notes in the file's header comment.
+**Built and live, zero maintenance:** two native widgets on the Multi-Purpose Client Dashboard already give a baseline view of progress —
+- **Client Tasks** widget — raw list of tasks flagged Assigned To = Client.
+- **Projects** widget — a live **% COMPLETE** badge per project, calculated from real task completion. No setup beyond what's already built.
+
+**Optional, friendlier visual tracker:** neither widget above is a visual "you are here" journey map. `templates/client-portal/project-status-tracker.html` is a standalone, self-contained status page that shows the same journey (the 7 Base Template phases, or the 5-step episode flow for Podcast) as a step tracker with a clear current-stage marker. It has no connection to SuiteDash's data — duplicate it per client/project, edit the `TRACKER_CONFIG` block at the bottom of the file to set the current stage, and either host it as an unlisted page / Showit embed or just send the client the .html file directly. See the usage notes in the file's header comment.
+
+**Tried and reverted — native Portal Pages gated by CRM Circle:** the obvious SuiteDash-native alternative was 5 Portal Pages (one per production stage), each visible only to clients in a matching CRM Circle (Pre-Production/Production/Post-Production/Delivered/New Client — these Circles already exist under CRM → Circles). Moving a client's Circle membership would auto-switch which stage page they see, no external hosting needed. **This doesn't work**: SuiteDash's own Portal Page editor has a confirmed bug where the "Assign Circle(s)" selection is silently dropped from the save request, verified by inspecting the raw network payload — the UI shows the circle selected and reports a successful save, but the field is never actually sent. A manually-constructed request with the field added was accepted by the server fine, confirming this is a bug in SuiteDash's client-side save logic, not a permissions/plan limitation. Revisit this only if SuiteDash fixes it.
 
 ## Setup checklist
 

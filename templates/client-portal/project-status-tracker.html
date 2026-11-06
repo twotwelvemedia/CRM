@@ -2,24 +2,40 @@
   Client Project Status Tracker — standalone HTML, no third-party branding.
 
   WHAT THIS IS
-  Plutio's client portal shows raw task checklists (docs/12), which works but
-  isn't very visual. This is a simple "where's my project" tracker page —
-  one page per client, showing the 7 phases from the Base Template
-  (docs/05-project-templates.md) as a step-by-step journey with a clear
-  "you are here" marker.
+  SuiteDash's native client portal already shows two baseline trackers
+  (docs/12): the Client Tasks widget (raw task list) and a % COMPLETE
+  badge per project on the Projects widget — both live, zero-maintenance,
+  built from real Task Group completion. This file is the nicer, visual
+  "you are here" step-tracker on top of that baseline.
+
+  WHY IT'S A SEPARATE FILE, NOT A SUITEDASH PORTAL PAGE
+  This was tried as 5 native SuiteDash Portal Pages, one per production
+  stage, shown/hidden via CRM Circle membership (Office → CRM → Circles
+  already has Pre-Production/Production/Post-Production/Delivered/New
+  Client circles pre-built for exactly this). It doesn't work: SuiteDash's
+  own Portal Page editor has a confirmed bug where the "Assign Circle(s)"
+  field is silently dropped from the save request — verified by inspecting
+  the raw network payload, not just the UI. The circle chip shows as
+  selected, the save reports success, but the field is simply absent from
+  what's sent, so visibility never actually gets scoped. A raw request
+  with the field manually added confirmed the server itself accepts it
+  fine — this is a bug in SuiteDash's own client-side save logic, not a
+  permissions or plan issue. Revisit the Portal Page approach only if
+  SuiteDash fixes this; until then, this standalone file is the reliable
+  option for a visual tracker.
 
   HOW TO USE
   1. Duplicate this file per active client/project (e.g.
-     "status-acme-brand-story.html") — this is filled in and updated by hand,
-     it has no connection to Plutio's data.
-  2. Edit the TRACKER_CONFIG object near the bottom of this file: client name,
-     project name, project type, and which stage they're currently in.
-     Update currentStageIndex (and optionally stageDates / currentStageNote)
-     each time the project moves to a new phase.
+     "status-acme-brand-story.html") — this is filled in and updated by
+     hand, it has no connection to SuiteDash's data.
+  2. Edit the TRACKER_CONFIG object near the bottom of this file: client
+     name, project name, project type, and which stage they're currently
+     in. Update currentStageIndex (and optionally stageDates /
+     currentStageNote) each time the project moves to a new phase.
   3. Share it with the client one of two ways:
-       a) Host the file on an unlisted page of your website (Showit: add it
-          as a page, or embed the contents of <body> into a Code Embed
-          block) and send the client that link.
+       a) Host the file on an unlisted page of your website (Showit: add
+          it as a page, or embed the contents of <body> into a Code
+          Embed block) and send the client that link.
        b) Just email/attach the .html file directly — it opens in any
           browser with no server needed.
   4. For Podcast clients, set projectType to "Podcast" — the stage list
