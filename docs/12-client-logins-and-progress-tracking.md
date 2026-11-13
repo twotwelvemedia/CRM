@@ -36,6 +36,8 @@ The **(Client-Visible)** flags in docs/05 mark the tasks with Assigned To set to
 4. The Client Tasks widget shows only tasks where Assigned To = Client on their Project(s) — see the gap note above.
 5. Can view/download files, upload files back, view and pay invoices, and message the team — all from the same portal login.
 
+**"Book a Meeting" button — fixed, now wired to both bookable staff members.** This button's Click Action is "Open Appointment Scheduling Pop-up," which requires at least one Appointment Generator selected in the button's own settings (Multi-Purpose Client Dashboard editor → Easy Navigation row → Book a Meeting button block → pencil icon). It was found live with **no Appointment Generator selected at all** (shown in the editor as a yellow warning triangle next to the button) — clicking it in the portal would have done nothing. The "Appointment Generators" field accepts multiple selections, so all 4 built generators (Discovery Call × 2 — one per staff member, Production Meeting, Pre-Production Strategy Session) are now attached to this one button; the pop-up lets the client pick which one (and which staff member) to book, the same multi-generator card layout already used on the standalone Booking Forms (see below). Confirmed via fresh reload: the warning icon is gone and all 4 generators are selected.
+
 ## Progress tracking: what's native vs. what's a separate file
 
 **Built and live, zero maintenance:** two native widgets on the Multi-Purpose Client Dashboard already give a baseline view of progress —

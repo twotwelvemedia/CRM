@@ -1,6 +1,13 @@
 # Scheduling & Messaging
 
-Plutio has native features for both of these — you don't need a third-party scheduler or chat tool.
+**Correction from earlier (Plutio-era) planning — this whole file still needs a full rewrite pass, not done here.** The rest of this doc describes Plutio's Scheduler ("Settings → Scheduler," connecting Zoom/Meet/Teams directly, etc.), which doesn't exist in SuiteDash. The real mechanism, confirmed live:
+
+- **Office → Scheduling → Generators** builds an **Appointment Generator** per meeting type (Discovery Call, Production Meeting, Pre-Production Strategy Session, etc.), each with its own duration, host/staff assignment, and availability.
+- An Appointment Generator has **no shareable link of its own** — it only becomes bookable once attached to a **Booking Form** (Forms → Create Form → Booking), via that form's "Configure Appointment Generators" step. A Booking Form can hold one or several generators; if it holds more than one, the public page shows them as selectable cards (client picks which meeting type/staff member before picking a time).
+- **Built and live:** two Booking Forms exist — "Schedule a Meeting with Marcus" and "Schedule a Meeting with Eric" — each wired to that staff member's generator(s). Each form's Link/Embed panel → Friendly URL gives a short alias under the account's custom domain:
+  - Marcus: `https://clients.two-twelvemedia.com/bookmarcus`
+  - Eric: `https://clients.two-twelvemedia.com/connecteric`
+- The Client Portal's "Book a Meeting" button (docs/12) uses a third option — a native "Open Appointment Scheduling Pop-up" click-action that can attach Appointment Generators directly, no separate Form/link needed. See docs/12 for the fix made to that button (it shipped with no generators attached) and why it's wired to all 4 generators instead of just one.
 
 ## Scheduler (booking pages)
 
