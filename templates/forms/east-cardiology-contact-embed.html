@@ -1,0 +1,202 @@
+<!--
+  East Cardiology — website contact form, custom HTML.
+
+  WHY THIS EXISTS:
+  Showit's built-in Form element always emails whoever owns the Showit
+  account (your agency's account), not the client. This embed replaces
+  that element with a plain HTML form that posts straight to FormSubmit.co,
+  a free form-to-email relay — so submissions land in East Cardiology's
+  inbox instead of yours. No branding is added to the page, and East
+  Cardiology doesn't need to create any account.
+
+  HOW TO USE:
+  1. In Showit, delete/hide the existing native Form element on the
+     Contact page and add a Code Embed / HTML Embed block in its place.
+  2. Paste this entire file's contents into that block, and publish.
+  3. One-time activation: submit the form yourself once after publishing.
+     FormSubmit will send an email to contact@eastcardiology.com with an
+     "Activate Form" link. Have East Cardiology (or whoever checks that
+     inbox) click it — until they do, submissions won't be delivered.
+     Submissions made before activation are not queued or retried, so
+     re-submit the test form after it's activated to confirm delivery.
+  4. To send to a different address later, change EMAIL_ADDRESS below and
+     repeat the one-time activation step for the new address.
+  5. Adjust the colors in the --ecf-* variables near the top of the
+     <style> block to match East Cardiology's brand.
+-->
+
+<style>
+  .ecf-form-wrap {
+    --ecf-accent: #0E7490;
+    --ecf-text: #1F2937;
+    --ecf-muted: #6B7280;
+    --ecf-border: #D1D5DB;
+    --ecf-field-bg: #FFFFFF;
+    --ecf-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent;
+    box-sizing: border-box;
+  }
+  .ecf-form-wrap * {
+    box-sizing: border-box;
+  }
+  .ecf-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .ecf-row-pair {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .ecf-row-pair > .ecf-row {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+  .ecf-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ecf-text);
+  }
+  .ecf-required {
+    color: var(--ecf-accent);
+  }
+  .ecf-input,
+  .ecf-textarea {
+    width: 100%;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--ecf-text);
+    background: var(--ecf-field-bg);
+    border: 1px solid var(--ecf-border);
+    border-radius: var(--ecf-radius);
+    padding: 10px 12px;
+  }
+  .ecf-textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  .ecf-input:focus,
+  .ecf-textarea:focus {
+    outline: none;
+    border-color: var(--ecf-accent);
+  }
+  .ecf-submit {
+    background: var(--ecf-accent);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--ecf-radius);
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+  }
+  .ecf-submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+  .ecf-status {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  .ecf-status.success {
+    color: #15803D;
+  }
+  .ecf-status.error {
+    color: #B91C1C;
+  }
+</style>
+
+<div class="ecf-form-wrap">
+  <form id="ecfContactForm">
+    <div class="ecf-row">
+      <label class="ecf-label" for="ecfName">Name <span class="ecf-required">*</span></label>
+      <input class="ecf-input" type="text" id="ecfName" name="name" required>
+    </div>
+
+    <div class="ecf-row-pair">
+      <div class="ecf-row">
+        <label class="ecf-label" for="ecfEmail">Email <span class="ecf-required">*</span></label>
+        <input class="ecf-input" type="email" id="ecfEmail" name="email" required>
+      </div>
+      <div class="ecf-row">
+        <label class="ecf-label" for="ecfPhone">Phone</label>
+        <input class="ecf-input" type="tel" id="ecfPhone" name="phone">
+      </div>
+    </div>
+
+    <div class="ecf-row">
+      <label class="ecf-label" for="ecfMessage">Message <span class="ecf-required">*</span></label>
+      <textarea class="ecf-textarea" id="ecfMessage" name="message" required></textarea>
+    </div>
+
+    <button class="ecf-submit" type="submit" id="ecfSubmitBtn">SUBMIT</button>
+    <div class="ecf-status" id="ecfStatus"></div>
+  </form>
+</div>
+
+<script>
+(function () {
+  const EMAIL_ADDRESS = "contact@eastcardiology.com";
+  const ENDPOINT = "https://formsubmit.co/ajax/" + EMAIL_ADDRESS;
+
+  const form = document.getElementById("ecfContactForm");
+  const submitBtn = document.getElementById("ecfSubmitBtn");
+  const status = document.getElementById("ecfStatus");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("ecfName").value;
+    const email = document.getElementById("ecfEmail").value;
+    const phone = document.getElementById("ecfPhone").value;
+    const message = document.getElementById("ecfMessage").value;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "SENDING...";
+    status.textContent = "";
+    status.className = "ecf-status";
+
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        Name: name,
+        Email: email,
+        Phone: phone,
+        Message: message,
+        _subject: "New message from eastcardiology.com contact form",
+        _template: "table",
+        _replyto: email
+      })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error("Request failed");
+        return res.json();
+      })
+      .then(function () {
+        form.reset();
+        status.textContent = "Thank you for contacting us. We will be in touch soon. God Bless.";
+        status.className = "ecf-status success";
+      })
+      .catch(function () {
+        status.textContent = "Something went wrong — please try again, or call us directly at (757) 222-0012.";
+        status.className = "ecf-status error";
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SUBMIT";
+      });
+  });
+})();
+</script>
